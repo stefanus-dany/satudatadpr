@@ -4,6 +4,9 @@
     <string name="dashboard_welcome">Selamat Datang SIKORUP\nSistem Informasi Korupsi\nSatu Data DPR RI</string>
     <string name="dashboard_sub_welcome">Dalam situs ini anda dapat menemukan informasi mengenai kasus korupsi di Indonesia. Bagaimana penanganan yang dilakukan oleh pemerintah terhadap persoalan korupsi di Indonesia.</string>
     <string name="title_data_available">Data Yang Tersedia</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="get_started">Let\'s Get Started!</string>
     <!--Header-->
     <!--Label-->
     <!--Label Error-->

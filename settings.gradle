@@ -11,3 +11,4 @@ rootProject.name = "Satu Data DPR RI"
 include ':app'
 include ':commons:resources'
 include ':dashboard'
+include ':home'

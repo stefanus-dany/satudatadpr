@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SatuDataDPRRI" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.SatuDataDPRRI" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryVariant">@color/color_primary</item>
@@ -14,4 +14,51 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="BottomSheetCardViewLeftTop" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners_left_top</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay_card_custom_corners_left_top" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">70dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="BottomSheetCardViewRightBottom" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners_right_bottom</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay_card_custom_corners_right_bottom" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomRight">70dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="formatFont">
+        <item name="fontFamily">@font/opensans_regular</item>
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:textSize">@dimen/medium_text</item>
+    </style>
+
+    <style name="formatFont.semibold" parent="formatFont">
+        <item name="fontFamily">@font/opensans_semibold</item>
+    </style>
+
+    <style name="formatFont.bold" parent="formatFont">
+        <item name="android:fontFamily">@font/opensans_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="formatFont.extrabold" parent="formatFont">
+        <item name="android:fontFamily">@font/opensans_extrabold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

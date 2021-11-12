@@ -49,6 +49,11 @@ dependencies {
     implementation(Dependencies.NAVIGATION_FRAGMENT)
     implementation(Dependencies.NAVIGATION_UI)
 
+    //imageslider
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     // Glide
 //    implementation(Dependencies.GLIDE)
 
