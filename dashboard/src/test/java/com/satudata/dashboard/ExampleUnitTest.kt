@@ -1,4 +1,4 @@
-package com.projek.dashboard
+package com.satudata.dashboard
 
 import org.junit.Test
 

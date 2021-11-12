@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--margin xxxsmall-->
+    <dimen name="layout_margin_top_xxxsmall_size" tools:override="true">4dp</dimen>
+    <dimen name="layout_margin_bottom_xxxsmall_size" tools:override="true">4dp</dimen>
+    <dimen name="layout_margin_start_xxxsmall_size" tools:override="true">4dp</dimen>
+    <dimen name="layout_margin_end_xxxsmall_size" tools:override="true">4dp</dimen>
+    <dimen name="layout_margin_xxxsmall_size" tools:override="true">4dp</dimen>
+
+    <!--margin xxsmall-->
+    <dimen name="layout_margin_top_xxsmall_size" tools:override="true">8dp</dimen>
+    <dimen name="layout_margin_bottom_xxsmall_size" tools:override="true">8dp</dimen>
+    <dimen name="layout_margin_start_xxsmall_size" tools:override="true">8dp</dimen>
+    <dimen name="layout_margin_end_xxsmall_size" tools:override="true">8dp</dimen>
+    <dimen name="layout_margin_xxsmall_size" tools:override="true">8dp</dimen>
+
+    <!--margin xsmall-->
+    <dimen name="layout_margin_top_xsmall_size" tools:override="true">10dp</dimen>
+    <dimen name="layout_margin_bottom_xsmall_size" tools:override="true">10dp</dimen>
+    <dimen name="layout_margin_start_xsmall_size" tools:override="true">10dp</dimen>
+    <dimen name="layout_margin_end_xsmall_size" tools:override="true">10dp</dimen>
+    <dimen name="layout_margin_xsmall_size" tools:override="true">10dp</dimen>
+
+    <!--margin small-->
+    <dimen name="layout_margin_top_small_size" tools:override="true">12dp</dimen>
+    <dimen name="layout_margin_bottom_small_size" tools:override="true">12dp</dimen>
+    <dimen name="layout_margin_start_small_size" tools:override="true">12dp</dimen>
+    <dimen name="layout_margin_end_small_size" tools:override="true">12dp</dimen>
+    <dimen name="layout_margin_small_size" tools:override="true">12dp</dimen>
+
+    <!--margin medium-->
+    <dimen name="layout_margin_top_medium_size" tools:override="true">14dp</dimen>
+    <dimen name="layout_margin_bottom_medium_size" tools:override="true">14dp</dimen>
+    <dimen name="layout_margin_start_medium_size" tools:override="true">14dp</dimen>
+    <dimen name="layout_margin_end_medium_size" tools:override="true">14dp</dimen>
+    <dimen name="layout_margin_medium_size" tools:override="true">14dp</dimen>
+
+    <!--margin large-->
+    <dimen name="layout_margin_top_large_size" tools:override="true">16dp</dimen>
+    <dimen name="layout_margin_bottom_large_size" tools:override="true">16dp</dimen>
+    <dimen name="layout_margin_start_large_size" tools:override="true">16dp</dimen>
+    <dimen name="layout_margin_end_large_size" tools:override="true">16dp</dimen>
+    <dimen name="layout_margin_large_size" tools:override="true">16dp</dimen>
+
+    <!--margin xlarge-->
+    <dimen name="layout_margin_top_xlarge_size" tools:override="true">18dp</dimen>
+    <dimen name="layout_margin_bottom_xlarge_size" tools:override="true">18dp</dimen>
+    <dimen name="layout_margin_start_xlarge_size" tools:override="true">18dp</dimen>
+    <dimen name="layout_margin_end_xlarge_size" tools:override="true">18dp</dimen>
+    <dimen name="layout_margin_xlarge_size" tools:override="true">18dp</dimen>
+
+    <!--margin xxlarge-->
+    <dimen name="layout_margin_top_xxlarge_size" tools:override="true">20dp</dimen>
+    <dimen name="layout_margin_bottom_xxlarge_size" tools:override="true">20dp</dimen>
+    <dimen name="layout_margin_start_xxlarge_size" tools:override="true">20dp</dimen>
+    <dimen name="layout_margin_end_xxlarge_size" tools:override="true">20dp</dimen>
+    <dimen name="layout_margin_xxlarge_size" tools:override="true">20dp</dimen>
+
+    <!--margin xxxlarge-->
+    <dimen name="layout_margin_top_xxxlarge_size" tools:override="true">22dp</dimen>
+    <dimen name="layout_margin_bottom_xxxlarge_size" tools:override="true">22dp</dimen>
+    <dimen name="layout_margin_start_xxxlarge_size" tools:override="true">22dp</dimen>
+    <dimen name="layout_margin_end_xxxlarge_size" tools:override="true">22dp</dimen>
+    <dimen name="layout_margin_xxxlarge_size" tools:override="true">22dp</dimen>
+    <!--padding none-->
+    <dimen name="layout_padding_empty" tools:override="true">0dp</dimen>
+
+    <!--padding xxxsmall-->
+    <dimen name="layout_padding_top_xxxsmall_size" tools:override="true">4dp</dimen>
+    <dimen name="layout_padding_bottom_xxxsmall_size" tools:override="true">4dp</dimen>
+    <dimen name="layout_padding_start_xxxsmall_size" tools:override="true">4dp</dimen>
+    <dimen name="layout_padding_end_xxxsmall_size" tools:override="true">4dp</dimen>
+    <dimen name="layout_padding_xxxsmall_size" tools:override="true">4dp</dimen>
+
+    <!--padding xxsmall-->
+    <dimen name="layout_padding_top_xxsmall_size" tools:override="true">8dp</dimen>
+    <dimen name="layout_padding_bottom_xxsmall_size" tools:override="true">8dp</dimen>
+    <dimen name="layout_padding_start_xxsmall_size" tools:override="true">8dp</dimen>
+    <dimen name="layout_padding_end_xxsmall_size" tools:override="true">8dp</dimen>
+    <dimen name="layout_padding_xxsmall_size" tools:override="true">8dp</dimen>
+
+    <!--padding xsmall-->
+    <dimen name="layout_padding_top_xsmall_size" tools:override="true">10dp</dimen>
+    <dimen name="layout_padding_bottom_xsmall_size" tools:override="true">10dp</dimen>
+    <dimen name="layout_padding_start_xsmall_size" tools:override="true">10dp</dimen>
+    <dimen name="layout_padding_end_xsmall_size" tools:override="true">10dp</dimen>
+    <dimen name="layout_padding_xsmall_size" tools:override="true">10dp</dimen>
+
+    <!--padding small-->
+    <dimen name="layout_padding_top_small_size" tools:override="true">12dp</dimen>
+    <dimen name="layout_padding_bottom_small_size" tools:override="true">12dp</dimen>
+    <dimen name="layout_padding_start_small_size" tools:override="true">12dp</dimen>
+    <dimen name="layout_padding_end_small_size" tools:override="true">12dp</dimen>
+    <dimen name="layout_padding_small_size" tools:override="true">12dp</dimen>
+
+    <!--padding medium-->
+    <dimen name="layout_padding_top_medium_size" tools:override="true">14dp</dimen>
+    <dimen name="layout_padding_bottom_medium_size" tools:override="true">14dp</dimen>
+    <dimen name="layout_padding_start_medium_size" tools:override="true">14dp</dimen>
+    <dimen name="layout_padding_end_medium_size" tools:override="true">14dp</dimen>
+    <dimen name="layout_padding_medium_size" tools:override="true">14dp</dimen>
+
+    <!--padding large-->
+    <dimen name="layout_padding_top_large_size" tools:override="true">16dp</dimen>
+    <dimen name="layout_padding_bottom_large_size" tools:override="true">16dp</dimen>
+    <dimen name="layout_padding_start_large_size" tools:override="true">16dp</dimen>
+    <dimen name="layout_padding_end_large_size" tools:override="true">16dp</dimen>
+    <dimen name="layout_padding_large_size" tools:override="true">16dp</dimen>
+
+    <!--padding xlarge-->
+    <dimen name="layout_padding_top_xlarge_size" tools:override="true">18dp</dimen>
+    <dimen name="layout_padding_bottom_xlarge_size" tools:override="true">18dp</dimen>
+    <dimen name="layout_padding_start_xlarge_size" tools:override="true">18dp</dimen>
+    <dimen name="layout_padding_end_xlarge_size" tools:override="true">18dp</dimen>
+    <dimen name="layout_padding_xlarge_size" tools:override="true">18dp</dimen>
+
+    <!--padding xxlarge-->
+    <dimen name="layout_padding_top_xxlarge_size" tools:override="true">20dp</dimen>
+    <dimen name="layout_padding_bottom_xxlarge_size" tools:override="true">20dp</dimen>
+    <dimen name="layout_padding_start_xxlarge_size" tools:override="true">20dp</dimen>
+    <dimen name="layout_padding_end_xxlarge_size" tools:override="true">20dp</dimen>
+    <dimen name="layout_padding_xxlarge_size" tools:override="true">20dp</dimen>
+
+    <!--padding xxxlarge-->
+    <dimen name="layout_padding_top_xxxlarge_size" tools:override="true">22dp</dimen>
+    <dimen name="layout_padding_bottom_xxxlarge_size" tools:override="true">22dp</dimen>
+    <dimen name="layout_padding_start_xxxlarge_size" tools:override="true">22dp</dimen>
+    <dimen name="layout_padding_end_xxxlarge_size" tools:override="true">22dp</dimen>
+    <dimen name="layout_padding_xxxlarge_size" tools:override="true">22dp</dimen>
+
+</resources>

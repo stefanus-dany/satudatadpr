@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--color primary-->
+    <color name="color_primary">#E26A2C</color>
+
+    <!--text primary color-->
+    <color name="text_primary_color">#000000</color>
+
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>
     <color name="md_red_100">#FFCDD2</color>
@@ -234,6 +241,7 @@
     <color name="md_orange_600">#FB8C00</color>
     <color name="md_orange_700">#F57C00</color>
     <color name="md_orange_800">#EF6C00</color>
+
     <color name="md_orange_900">#E65100</color>
     <color name="md_orange_A100">#FFD180</color>
     <color name="md_orange_A200">#FFAB40</color>
