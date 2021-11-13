@@ -178,7 +178,7 @@
                     android:textColor="@color/grey_font"
                     android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
                     android:text="@string/label_dont_have_account"
-                    android:textSize="@dimen/large_text" />
+                    android:textSize="@dimen/medium_text" />
 
                 <TextView
                     android:id="@+id/tv_register"
@@ -189,7 +189,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
                     android:text="@string/label_register_here"
-                    android:textSize="@dimen/large_text" />
+                    android:textSize="@dimen/medium_text" />
 
             </LinearLayout>
 

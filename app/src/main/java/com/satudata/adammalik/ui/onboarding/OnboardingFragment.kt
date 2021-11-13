@@ -113,9 +113,13 @@ class OnboardingFragment : Fragment() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        if (runnable != null) mHandler.removeCallbacks(runnable!!)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        if (runnable != null) mHandler.removeCallbacks(runnable!!)
     }
 }
