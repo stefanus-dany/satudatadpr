@@ -1,8 +1,8 @@
 package com.satudata.adammalik.ui.onboarding
 
 import android.os.Bundle
+import android.os.Handler
 import android.text.Html
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.satudata.adammalik.R
 import com.satudata.adammalik.databinding.FragmentOnboardingBinding
 import com.satudata.adammalik.ui.adapter.SliderAdapter
+
 
 class OnboardingFragment : Fragment() {
 
@@ -31,10 +32,15 @@ class OnboardingFragment : Fragment() {
         _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
 
         listTitle = arrayOf("Informasi Korupsi", "Grafik", "Kinerja Penegakan Korupsi")
-        listSubTitle = arrayOf("Merangkum informasi penting terkait kasus korupsi.", "Menggunakan berbagai grafik dan penjelasan yang mudah dipahami.", "Demi meningkatnya kinerja penegakan korupsi serta SDM yang mumpuni.")
+        listSubTitle = arrayOf(
+            "Merangkum informasi penting terkait kasus korupsi.",
+            "Menggunakan berbagai grafik dan penjelasan yang mudah dipahami.",
+            "Demi meningkatnya kinerja penegakan korupsi serta SDM yang mumpuni."
+        )
 
         adapter = SliderAdapter(listTitle, listSubTitle)
         binding.viewPagerOnboarding.adapter = adapter
+        startAutoSlider(listTitle.size)
 
         binding.viewPagerOnboarding.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
@@ -49,15 +55,33 @@ class OnboardingFragment : Fragment() {
         return binding.root
     }
 
+    val mHandler: Handler = Handler()
+    private var runnable: Runnable? = null
+    private fun startAutoSlider(count: Int) {
+        runnable = Runnable {
+            var pos: Int = binding.viewPagerOnboarding.currentItem
+            pos += 1
+            if (pos >= count) pos = 0
+            binding.viewPagerOnboarding.currentItem = pos
+            runnable?.let { mHandler.postDelayed(it, 4000) }
+        }
+        mHandler.postDelayed(runnable!!, 4000)
+    }
+
     private fun selectedIndicator(position: Int) {
-        for (i in dots.indices){
-            if (i == position){
+        for (i in dots.indices) {
+            if (i == position) {
                 //many colors
 //                dots[i]?.setTextColor(list[position])
                 //white only color
                 dots[i]?.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
             } else {
-                dots[i]?.setTextColor(ContextCompat.getColor(requireContext(), R.color.md_deep_orange_200))
+                dots[i]?.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.md_deep_orange_200
+                    )
+                )
             }
         }
     }
@@ -74,7 +98,7 @@ class OnboardingFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        if (runnable != null) mHandler.removeCallbacks(runnable!!)
     }
-
-
 }
+
