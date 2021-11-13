@@ -31,10 +31,13 @@
         android:id="@+id/materialCardView_background"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:backgroundTint="@android:color/transparent"
         android:src="@color/color_primary"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboarding_background" />
 
 
     <ImageView
@@ -50,6 +53,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/dots_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:translationZ="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/layout_margin_bottom_xxxlarge_size"
+        app:layout_constraintBottom_toBottomOf="@id/onboarding_background" />
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager_onboarding"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
+        android:layout_marginBottom="@dimen/layout_margin_bottom_xxxlarge_size"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@id/onboarding_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sikorup_logo_onboarding" />
+
     <TextView
         android:id="@+id/tv_get_started"
         style="@style/formatFont.bold"
@@ -57,8 +85,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
         android:text="@string/get_started"
-        android:translationZ="90dp"
         android:textSize="@dimen/large_text"
+        android:translationZ="90dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/materialCardView_background" />

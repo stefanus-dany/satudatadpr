@@ -38,7 +38,7 @@
         <item name="cornerSizeTopRight">0dp</item>
         <item name="cornerSizeTopLeft">0dp</item>
         <item name="cornerSizeBottomRight">70dp</item>
-        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomLeft">70dp</item>
     </style>
 
     <style name="formatFont">

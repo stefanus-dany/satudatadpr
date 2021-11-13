@@ -1,20 +1,27 @@
 package com.satudata.adammalik.ui.onboarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Html
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.denzcoskun.imageslider.constants.ScaleTypes
-import com.denzcoskun.imageslider.models.SlideModel
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.satudata.adammalik.R
 import com.satudata.adammalik.databinding.FragmentOnboardingBinding
-import com.satudata.dashboard.databinding.FragmentDashboardBinding
+import com.satudata.adammalik.ui.adapter.SliderAdapter
 
 class OnboardingFragment : Fragment() {
 
     private var _binding: FragmentOnboardingBinding? = null
     private val binding get() = _binding!!
+    private lateinit var listTitle: Array<String>
+    private lateinit var listSubTitle: Array<String>
+    private var dots = arrayOfNulls<TextView>(3)
+    private lateinit var adapter: SliderAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,19 +30,45 @@ class OnboardingFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
 
-        val imageList = ArrayList<SlideModel>() // Create image list
+        listTitle = arrayOf("Informasi Korupsi", "Grafik", "Kinerja Penegakan Korupsi")
+        listSubTitle = arrayOf("Merangkum informasi penting terkait kasus korupsi.", "Menggunakan berbagai grafik dan penjelasan yang mudah dipahami.", "Demi meningkatnya kinerja penegakan korupsi serta SDM yang mumpuni.")
 
-// imageList.add(SlideModel("String Url" or R.drawable)
-// imageList.add(SlideModel("String Url" or R.drawable, "title") You can add title
+        adapter = SliderAdapter(listTitle, listSubTitle)
+        binding.viewPagerOnboarding.adapter = adapter
 
-        val scaleTypes = ScaleTypes.FIT
-        imageList.add(SlideModel(com.satudata.dashboard.R.drawable.one, "The animal population decreased by 58 percent in 42 years.", scaleTypes))
-        imageList.add(SlideModel(com.satudata.dashboard.R.drawable.two, "Elephants and tigers may become extinct.", scaleTypes))
-        imageList.add(SlideModel(com.satudata.dashboard.R.drawable.three, "And people do that.", scaleTypes))
+        binding.viewPagerOnboarding.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                selectedIndicator(position)
+                super.onPageSelected(position)
+            }
+        })
 
-        binding.imageSliderOnboarding.setImageList(imageList)
+        dotsIndicator()
 
         return binding.root
+    }
+
+    private fun selectedIndicator(position: Int) {
+        for (i in dots.indices){
+            if (i == position){
+                //many colors
+//                dots[i]?.setTextColor(list[position])
+                //white only color
+                dots[i]?.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            } else {
+                dots[i]?.setTextColor(ContextCompat.getColor(requireContext(), R.color.md_deep_orange_200))
+            }
+        }
+    }
+
+    private fun dotsIndicator() {
+        for (i in 0 until 3) {
+            dots[i] = TextView(requireContext())
+            dots[i]?.text = Html.fromHtml("&#9679")
+            dots[i]?.textSize = 18F
+            binding.dotsContainer.addView(dots[i])
+        }
     }
 
     override fun onDestroy() {
