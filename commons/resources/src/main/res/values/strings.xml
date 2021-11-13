@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--App Name-->
+    <string name="app_name">Sikorup</string>
     <!--General-->
     <string name="dashboard_welcome">Selamat Datang SIKORUP\nSistem Informasi Korupsi\nSatu Data DPR RI</string>
     <string name="dashboard_sub_welcome">Dalam situs ini anda dapat menemukan informasi mengenai kasus korupsi di Indonesia. Bagaimana penanganan yang dilakukan oleh pemerintah terhadap persoalan korupsi di Indonesia.</string>
@@ -7,8 +9,15 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="get_started">Let\'s Get Started!</string>
+    <string name="login_to_continue">Login to Continue</string>
+    <string name="register_to_continue">Register to Continue!</string>
     <!--Header-->
     <!--Label-->
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_remember_me">Remember me</string>
+    <string name="label_dont_have_account">Don\'t have an account?</string>
+    <string name="label_register_here"><u>Register here</u></string>
     <!--Label Error-->
     <!--Button-->
     <!--Pop up Header-->

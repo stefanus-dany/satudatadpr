@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.satudata.adammalik.R
 import com.satudata.adammalik.databinding.FragmentOnboardingBinding
 import com.satudata.adammalik.ui.adapter.SliderAdapter
+import com.satudata.views.extensions.setSafeOnClickListener
 
 
 class OnboardingFragment : Fragment() {
@@ -52,8 +54,24 @@ class OnboardingFragment : Fragment() {
 
         dotsIndicator()
 
+        binding.btnLogin.setSafeOnClickListener {
+            findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
+        }
+
+        binding.btnRegister.setSafeOnClickListener {
+            findNavController().navigate(R.id.action_onboardingFragment_to_registerFragment)
+        }
+
         return binding.root
     }
+
+//    private fun makeCurrentFragment(fragment: Fragment) {
+//        fragmentManager?.beginTransaction()?.apply {
+//            replace(R.id.fl_wrapper, fragment)
+//            addToBackStack(null)
+//            commit()
+//        }
+//    }
 
     val mHandler: Handler = Handler()
     private var runnable: Runnable? = null
@@ -101,4 +119,3 @@ class OnboardingFragment : Fragment() {
         if (runnable != null) mHandler.removeCallbacks(runnable!!)
     }
 }
-
