@@ -75,4 +75,5 @@ object Dependencies {
     const val WORK_HILT = "androidx.hilt:hilt-work:${BuildDependenciesVersions.hiltAndroidX}"
     const val SERVICES_LOCATION = "com.google.android.gms:play-services-location:${BuildDependenciesVersions.serviceLocation}"
     const val EXIFINTERFACE = "androidx.exifinterface:exifinterface:${BuildDependenciesVersions.exifinterface}"
+    const val CIRCLE_IMAGE_VIEW = "de.hdodenhof:circleimageview:${BuildDependenciesVersions.circleImageView}"
 }

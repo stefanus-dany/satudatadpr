@@ -58,7 +58,7 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
     //rounded image
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation(Dependencies.CIRCLE_IMAGE_VIEW)
 
     //testing
     testImplementation 'junit:junit:'

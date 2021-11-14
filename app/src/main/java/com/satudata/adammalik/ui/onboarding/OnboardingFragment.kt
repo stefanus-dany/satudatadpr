@@ -33,6 +33,7 @@ class OnboardingFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
 
+        //onboarding message
         listTitle = arrayOf("Informasi Korupsi", "Grafik", "Kinerja Penegakan Korupsi")
         listSubTitle = arrayOf(
             "Merangkum informasi penting terkait kasus korupsi.",
@@ -73,6 +74,7 @@ class OnboardingFragment : Fragment() {
 //        }
 //    }
 
+    //handler for time onborading move to another view
     val mHandler: Handler = Handler()
     private var runnable: Runnable? = null
     private fun startAutoSlider(count: Int) {

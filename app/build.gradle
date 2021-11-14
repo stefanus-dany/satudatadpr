@@ -1,4 +1,4 @@
-import dependencies.Dependencies
+import dependencies.*
 
 plugins {
     id 'com.android.application'
@@ -39,6 +39,7 @@ dependencies {
 
     implementation project(':commons:resources')
     implementation project(':commons:views')
+    implementation project(':home')
     implementation project(':dashboard')
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APPCOMPAT)

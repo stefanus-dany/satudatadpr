@@ -77,4 +77,6 @@ object BuildDependenciesVersions {
     const val leakCanary = "2.6"
     const val serviceLocation = "18.0.0"
     const val exifinterface = "1.3.3"
+
+    const val circleImageView = "3.1.0"
 }

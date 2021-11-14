@@ -9,12 +9,18 @@
         android:id="@+id/loginFragment"
         android:name="com.satudata.adammalik.ui.authentication.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit" />
+    </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
         android:name="com.satudata.adammalik.ui.onboarding.OnboardingFragment"
         android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" >
+        tools:layout="@layout/fragment_onboarding">
 
         <action
             android:id="@+id/action_onboardingFragment_to_registerFragment"
@@ -37,4 +43,9 @@
         android:name="com.satudata.adammalik.ui.authentication.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.satudata.adammalik.ui.MainActivity"
+        android:label="MainActivity"
+        tools:layout="@layout/activity_main" />
 </navigation>

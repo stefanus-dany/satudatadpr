@@ -1,4 +1,4 @@
-package com.satudata.adammalik.ui.home
+package com.satudata.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
