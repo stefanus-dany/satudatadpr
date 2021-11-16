@@ -51,7 +51,8 @@ class LoginFragment : Fragment() {
             }
 
             if (binding.etEmail.text.toString() == "dany@dpr.go.id" && binding.etPassword.text.toString() == "aaaaaa"){
-                findNavController().navigate(R.id.action_loginFragment_to_mainActivity)
+//                findNavController().navigate(R.id.action_loginFragment_to_mainActivity)
+                findNavController().navigate(R.id.action_loginFragment_to_sideNav)
             } else {
                 Toast.makeText(requireContext(), "Your email and password doesn't match", Toast.LENGTH_SHORT).show()
             }

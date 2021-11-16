@@ -15,6 +15,9 @@
             app:destination="@id/mainActivity"
             app:enterAnim="@anim/enter"
             app:exitAnim="@anim/exit" />
+        <action
+            android:id="@+id/action_loginFragment_to_sideNav"
+            app:destination="@id/sideNav" />
     </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
@@ -48,4 +51,9 @@
         android:name="com.satudata.adammalik.ui.MainActivity"
         android:label="MainActivity"
         tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/sideNav"
+        android:name="com.satudata.adammalik.ui.SideNav"
+        android:label="app_bar_side_nav"
+        tools:layout="@layout/app_bar_side_nav" />
 </navigation>

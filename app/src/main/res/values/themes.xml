@@ -16,7 +16,9 @@
     </style>
 
     <style name="BottomSheetCardViewLeftTop" parent="@style/Widget.MaterialComponents.CardView">
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners_left_top</item>
+        <item name="shapeAppearanceOverlay">
+            @style/ShapeAppearanceOverlay_card_custom_corners_left_top
+        </item>
     </style>
 
 
@@ -29,7 +31,9 @@
     </style>
 
     <style name="BottomSheetCardViewRightBottom" parent="@style/Widget.MaterialComponents.CardView">
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners_right_bottom</item>
+        <item name="shapeAppearanceOverlay">
+            @style/ShapeAppearanceOverlay_card_custom_corners_right_bottom
+        </item>
     </style>
 
 
@@ -60,5 +64,14 @@
         <item name="android:fontFamily">@font/opensans_extrabold</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="Theme.SatuDataDPRRI.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.SatuDataDPRRI.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SatuDataDPRRI.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
