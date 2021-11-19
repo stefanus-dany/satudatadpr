@@ -79,4 +79,12 @@ object BuildDependenciesVersions {
     const val exifinterface = "1.3.3"
 
     const val circleImageView = "3.1.0"
+
+    const val mpAndroidChart = "v3.1.0"
+    const val anyChartAndroid = "1.1.2"
+
+    const val imageSlideShow = "0.1.0"
+
+    const val viewPager2 = "1.0.0"
+
 }

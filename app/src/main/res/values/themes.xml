@@ -28,7 +28,7 @@
         <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 
-    <style name="BottomSheetCardViewRightBottom" parent="@style/Widget.MaterialComponents.CardView">
+    <style name="BottomSheetCardViewLeftRightBottom" parent="@style/Widget.MaterialComponents.CardView">
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners_right_bottom</item>
     </style>
 

@@ -11,6 +11,7 @@
     <string name="get_started">Let\'s Get Started!</string>
     <string name="login_to_continue">Login to Continue</string>
     <string name="register_to_continue">Register to Continue!</string>
+    <string name="text_welcome">Welcome! <b>Dany</b></string>
     <!--Header-->
     <!--Label-->
     <string name="label_email">Email</string>

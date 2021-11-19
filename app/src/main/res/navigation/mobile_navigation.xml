@@ -5,11 +5,16 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.satudata.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_heatmapActivity"
+            app:destination="@id/heatmapActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +27,10 @@
         android:name="com.satudata.adammalik.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <activity
+        android:id="@+id/heatmapActivity"
+        android:name="com.satudata.home.HeatmapActivity"
+        android:label="HeatmapActivity"
+        tools:layout="@layout/activity_heatmap"/>
+
 </navigation>

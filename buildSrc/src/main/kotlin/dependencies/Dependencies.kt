@@ -76,4 +76,10 @@ object Dependencies {
     const val SERVICES_LOCATION = "com.google.android.gms:play-services-location:${BuildDependenciesVersions.serviceLocation}"
     const val EXIFINTERFACE = "androidx.exifinterface:exifinterface:${BuildDependenciesVersions.exifinterface}"
     const val CIRCLE_IMAGE_VIEW = "de.hdodenhof:circleimageview:${BuildDependenciesVersions.circleImageView}"
+    const val MP_ANDROID_CHART = "com.github.PhilJay:MPAndroidChart:${BuildDependenciesVersions.mpAndroidChart}"
+    const val ANY_CHART_ANDROID = "com.github.AnyChart:AnyChart-Android:${BuildDependenciesVersions.anyChartAndroid}"
+
+    const val IMAGE_SLIDE_SHOW = "com.github.denzcoskun:ImageSlideshow:${BuildDependenciesVersions.imageSlideShow}"
+    const val VIEW_PAGER2 = "androidx.viewpager2:viewpager2:${BuildDependenciesVersions.viewPager2}"
+
 }

@@ -4,6 +4,9 @@
     <!--color primary-->
     <color name="color_primary">#E26A2C</color>
 
+    <!--    color secondary-->
+    <color name="color_secondary">#FFFFFF</color>
+
     <!--text primary color-->
     <color name="text_primary_color">#000000</color>
 

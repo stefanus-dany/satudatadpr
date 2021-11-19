@@ -6,14 +6,4 @@
     android:layout_height="match_parent"
     tools:context="com.satudata.dashboard.DashboardFragment">
 
-    <com.denzcoskun.imageslider.ImageSlider
-        android:id="@+id/image_slider"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:iss_delay="0"
-        app:iss_period="1000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

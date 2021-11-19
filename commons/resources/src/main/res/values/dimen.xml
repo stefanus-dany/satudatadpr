@@ -60,6 +60,7 @@
     <!--margin xxxlarge-->
     <dimen name="layout_margin_top_xxxlarge_size" tools:override="true">22dp</dimen>
     <dimen name="layout_margin_bottom_xxxlarge_size" tools:override="true">22dp</dimen>
+    <dimen name="layout_margin_bottom_xxxxlarge_size" tools:override="true">24dp</dimen>
     <dimen name="layout_margin_start_xxxlarge_size" tools:override="true">22dp</dimen>
     <dimen name="layout_margin_end_xxxlarge_size" tools:override="true">22dp</dimen>
     <dimen name="layout_margin_xxxlarge_size" tools:override="true">22dp</dimen>
