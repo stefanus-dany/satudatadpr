@@ -3,9 +3,9 @@
     package="com.satudata.home">
 
     <application>
-        <activity
-            android:name=".HeatmapActivity"
-            android:exported="true" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAAC-qjgAjCk7tYFzoT3OyCHHCXwAbyshA" />
     </application>
 
 </manifest>

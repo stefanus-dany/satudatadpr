@@ -1,5 +1,6 @@
 package com.satudata.home
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -55,7 +56,7 @@ class HomeFragment : Fragment() {
         binding.runningTextHeatmap.isSelected = true
 
         binding.tvMoreHeatmap.setSafeOnClickListener {
-            startActivity(Intent(requireContext(), HeatmapActivity::class.java))
+            findNavController().navigate(R.id.action_homeFragment_to_heatmapFragment)
         }
 
         return root
