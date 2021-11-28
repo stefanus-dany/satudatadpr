@@ -82,4 +82,6 @@ object Dependencies {
     const val IMAGE_SLIDE_SHOW = "com.github.denzcoskun:ImageSlideshow:${BuildDependenciesVersions.imageSlideShow}"
     const val VIEW_PAGER2 = "androidx.viewpager2:viewpager2:${BuildDependenciesVersions.viewPager2}"
 
+    const val TABLE_VIEW = "com.github.ISchwarz23:SortableTableView:${BuildDependenciesVersions.tableView}"
+
 }

@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/commons/resources" />
             <option value="$PROJECT_DIR$/commons/views" />
             <option value="$PROJECT_DIR$/dashboard" />
+            <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/home" />
           </set>
         </option>

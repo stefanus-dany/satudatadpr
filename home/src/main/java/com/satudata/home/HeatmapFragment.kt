@@ -1,6 +1,10 @@
 package com.satudata.home
 
+import android.app.Activity
+import android.content.Intent
+import android.os.Build.ID
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +24,8 @@ import com.google.maps.android.heatmaps.WeightedLatLng
 import com.satudata.home.databinding.FragmentHeatmapBinding
 import com.satudata.views.extensions.setSafeOnClickListener
 import org.json.JSONArray
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamera {
 
@@ -129,6 +135,36 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamer
         }
 
 
+    }
+
+    private fun speak() {
+        val move = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        move.putExtra(
+            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+        )
+        val locale = Locale("id", "ID")
+        move.putExtra(RecognizerIntent.EXTRA_LANGUAGE, locale)
+        move.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak Now!")
+
+        try {
+            startActivityForResult(move, 100)
+        } catch (e: Exception) {
+
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            100 -> {
+                if (resultCode == Activity.RESULT_OK && data != null) {
+                    val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+//                    binding.searchview.setQuery(result?.get(0)?.toString(), false)
+//                    binding.searchview.isIconified = false
+                }
+            }
+        }
     }
 
     private fun getDataProvince(): ArrayList<HeatmapEntity> {

@@ -1,7 +1,5 @@
 package com.satudata.home
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -46,8 +44,20 @@ class HomeFragment : Fragment() {
 // imageList.add(SlideModel("String Url" or R.drawable, "title") You can add title
 
         val scaleTypes = ScaleTypes.FIT
-        imageList.add(SlideModel(R.drawable.one, "The animal population decreased by 58 percent in 42 years.", scaleTypes))
-        imageList.add(SlideModel(R.drawable.two, "Elephants and tigers may become extinct.", scaleTypes))
+        imageList.add(
+            SlideModel(
+                R.drawable.one,
+                "The animal population decreased by 58 percent in 42 years.",
+                scaleTypes
+            )
+        )
+        imageList.add(
+            SlideModel(
+                R.drawable.two,
+                "Elephants and tigers may become extinct.",
+                scaleTypes
+            )
+        )
         imageList.add(SlideModel(R.drawable.three, "And people do that.", scaleTypes))
 
         binding.imageSlider.setImageList(imageList)

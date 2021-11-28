@@ -60,6 +60,9 @@ dependencies {
     //rounded image
     implementation(Dependencies.CIRCLE_IMAGE_VIEW)
 
+    implementation(Dependencies.MP_ANDROID_CHART)
+    implementation(Dependencies.ANY_CHART_ANDROID)
+
     //testing
     testImplementation 'junit:junit:'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

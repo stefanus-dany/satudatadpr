@@ -5,10 +5,10 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
-<!--    <include app:graph="@navigation/home_navigation" />-->
-<!--    <action-->
-<!--        android:id="@+id/action_navigation_home_to_home_navigation"-->
-<!--        app:destination="@id/home_navigation" />-->
+    <include app:graph="@navigation/home_navigation" />
+    <action
+        android:id="@+id/action_navigation_home_to_home_navigation"
+        app:destination="@id/home_navigation" />
 
     <fragment
         android:id="@+id/navigation_home"
@@ -25,9 +25,15 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.satudata.adammalik.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_data"
+        android:name="com.satudata.data.DataFragment"
+        android:label="@string/title_data"
+        tools:layout="@layout/fragment_data" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.satudata.adammalik.ui.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 
 </navigation>

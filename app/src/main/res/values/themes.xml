@@ -42,22 +42,22 @@
     </style>
 
     <style name="formatFont">
-        <item name="fontFamily">@font/opensans_regular</item>
+        <item name="fontFamily">@font/poppins_regular</item>
         <item name="android:textColor">@color/color_primary</item>
         <item name="android:textSize">@dimen/medium_text</item>
     </style>
 
     <style name="formatFont.semibold" parent="formatFont">
-        <item name="fontFamily">@font/opensans_semibold</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
     </style>
 
     <style name="formatFont.bold" parent="formatFont">
-        <item name="android:fontFamily">@font/opensans_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="formatFont.extrabold" parent="formatFont">
-        <item name="android:fontFamily">@font/opensans_extrabold</item>
+        <item name="android:fontFamily">@font/poppins_extrabold</item>
         <item name="android:textStyle">bold</item>
     </style>
 

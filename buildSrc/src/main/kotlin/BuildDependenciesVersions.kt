@@ -87,4 +87,6 @@ object BuildDependenciesVersions {
 
     const val viewPager2 = "1.0.0"
 
+    const val tableView = "2.8.1"
+
 }
