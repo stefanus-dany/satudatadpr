@@ -89,4 +89,7 @@ object BuildDependenciesVersions {
 
     const val tableView = "2.8.1"
 
+    //first letter big size for news
+    const val DROP_CAP = "1.1.0"
+
 }

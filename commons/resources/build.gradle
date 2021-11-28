@@ -36,4 +36,5 @@ dependencies {
 
     // Material Design
     implementation(Dependencies.MATERIAL)
+    implementation(Dependencies.DROP_CAP)
 }

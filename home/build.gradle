@@ -53,8 +53,9 @@ dependencies {
     implementation(Dependencies.NAVIGATION_UI)
     implementation(Dependencies.IMAGE_SLIDE_SHOW)
     implementation(Dependencies.CIRCLE_IMAGE_VIEW)
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation(Dependencies.RECYCLE_VIEW)
+    implementation(Dependencies.GLIDE)
+    implementation(Dependencies.DROP_CAP)
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.google.maps.android:android-maps-utils:1.0.2'

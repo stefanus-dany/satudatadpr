@@ -7,177 +7,178 @@
     tools:context="com.satudata.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/onboarding_background"
+        android:id="@+id/cl_container"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_primary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tv_welcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin_top_medium_size"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/text_welcome"
-            android:textColor="@color/color_secondary"
-            android:textSize="@dimen/xlarge_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_notif"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/layout_margin_end_large_size"
-            android:src="@drawable/ic_notification"
-            app:layout_constraintBottom_toBottomOf="@id/tv_welcome"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_welcome" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/layout_margin_start_large_size"
-            android:src="@drawable/ic_profile"
-            app:layout_constraintBottom_toBottomOf="@id/tv_welcome"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_welcome" />
-
-        <SearchView
-            android:id="@+id/searchViewHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/layout_margin_start_large_size"
-            android:layout_marginTop="@dimen/layout_margin_top_large_size"
-            android:layout_marginEnd="@dimen/layout_margin_end_large_size"
-            android:layout_marginBottom="@dimen/layout_margin_bottom_xxxxlarge_size"
-            android:background="@drawable/searchview_background"
-            android:iconifiedByDefault="false"
-            android:queryBackground="@android:color/transparent"
-            android:queryHint="What are you looking for?"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/background_rounded_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/bg_rounded_bottom_right"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/onboarding_background" />
+        android:padding="@dimen/layout_padding_large_size"
+        android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/materialCardView_background"
+        android:id="@+id/iv_profile"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/logo_setjen_dprri"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_notification_primary_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_hi"
+        style="@style/formatFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
+        android:text="Hi, Dany"
+        android:textColor="@color/grey_font"
+        android:textSize="@dimen/medium_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile" />
+
+    <TextView
+        android:id="@+id/tv_quotes"
+        style="@style/formatFont.bold"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:backgroundTint="@android:color/transparent"
-        android:src="@color/color_primary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin_top_large_size"
+        android:text="What a beautiful day\nOur data is waiting for you"
+        android:textColor="@color/black_font"
+        android:textSize="@dimen/xxxlarge_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/background_rounded_bottom" />
+        app:layout_constraintTop_toBottomOf="@id/tv_hi" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/background_rounded_top"
+    <SearchView
+        android:id="@+id/searchViewHome"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/bg_rounded_top_left"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin_top_large_size"
+        android:background="@drawable/searchview_background"
+        android:iconifiedByDefault="false"
+        android:queryBackground="@android:color/transparent"
+        android:queryHint="Search Data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/background_rounded_bottom">
+        app:layout_constraintTop_toBottomOf="@+id/tv_quotes" />
 
-        <TextView
-            style="@style/formatFont.extrabold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/layout_margin_start_xxxlarge_size"
-            android:text="News"
-            android:textSize="@dimen/large_text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_categories"
+        style="@style/formatFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
+        android:text="Categories"
+        android:textColor="@color/black_font"
+        android:textSize="@dimen/large_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchViewHome" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/materialCardView"
+    <HorizontalScrollView
+        android:id="@+id/hsv_categories"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/white"
-        android:paddingStart="@dimen/layout_padding_start_large_size"
-        android:paddingEnd="@dimen/layout_padding_end_large_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/background_rounded_top">
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/cl_container">
 
-        <com.denzcoskun.imageslider.ImageSlider
-            android:id="@+id/image_slider"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:iss_auto_cycle="true"
-            app:iss_corner_radius="30"
-            app:iss_delay="0"
-            app:iss_period="3000"
-            app:iss_placeholder="@drawable/ic_profile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_heatmap"
-            style="@style/formatFont.extrabold"
+        <LinearLayout
+            android:paddingHorizontal="@dimen/layout_padding_large_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Heatmap of Indonesia"
-            android:textSize="@dimen/large_text"
-            android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_slider" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_more_heatmap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="more.."
-            style="@style/formatFont"
-            android:textSize="@dimen/large_text"
-            android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_slider" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_category_pemilu2024"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/layout_margin_end_medium_size"
+                android:backgroundTint="@color/color_primary"
+                app:cardCornerRadius="20dp">
 
-        <ImageView
-            android:id="@+id/iv_heatmap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@drawable/indonesia_map"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_heatmap" />
+                <TextView
+                    android:id="@+id/tv_category_pemilu2024"
+                    style="@style/formatFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layout_margin_small_size"
+                    android:text="#Pemilu2024"
+                    android:textColor="@color/color_secondary" />
 
-        <TextView
-            android:id="@+id/running_text_heatmap"
-            style="@style/formatFont"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin_top_medium_size"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:text="Jumlah pemilih: Sumatera Utara (6.138.630), Jawa Barat (11.632.816), Kepulauan Riau (1.168.188),  Riau (2.458.859)"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_heatmap"/>
+            </androidx.cardview.widget.CardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_category_dprri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/layout_margin_end_medium_size"
+                android:backgroundTint="@color/md_grey_200"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:id="@+id/tv_category_dprri"
+                    style="@style/formatFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layout_margin_small_size"
+                    android:text="DPR RI"
+                    android:textColor="@color/color_primary" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_category_setjen_dprri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/layout_margin_end_medium_size"
+                android:backgroundTint="@color/md_grey_200"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:id="@+id/tv_category_setjen_dprri"
+                    style="@style/formatFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layout_margin_small_size"
+                    android:text="Setjen DPR RI"
+                    android:textColor="@color/color_primary" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_category_satudata_dprri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/layout_margin_end_medium_size"
+                android:backgroundTint="@color/md_grey_200"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:id="@+id/tv_category_satudata_dprri"
+                    style="@style/formatFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layout_margin_small_size"
+                    android:text="Satu Data DPR RI"
+                    android:textColor="@color/color_primary" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin_top_medium_size"
+        app:layout_constraintTop_toBottomOf="@id/hsv_categories" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

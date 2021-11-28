@@ -61,6 +61,17 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="DropCap">
+        <item name="dropCapTextSize">64sp</item>
+        <item name="numberOfDropCaps">1</item>
+        <item name="dropCapTextColor">@color/color_primary</item>
+<!--        <item name="dropCapFontPath">fonts/SANS-SERIF_Cabin-Regular.otf</item>-->
+        <item name="copyTextSize">@dimen/medium_text</item>
+<!--        <item name="copyFontPath">fonts/neuropolitical_rg.ttf</item>-->
+        <item name="lineSpacingExtra">3sp</item>
+        <item name="android:textColor">@color/grey_font</item>
+    </style>
+
     <style name="TextAppearance.App.TextView" parent="@android:style/TextAppearance">
         <item name="android:textSize">@dimen/small_text</item>
         <item name="android:textStyle">normal</item>

@@ -10,6 +10,10 @@
     <!--text primary color-->
     <color name="text_primary_color">#000000</color>
 
+    <!--font color-->
+    <color name="grey_font">#ff9e9e9e</color>
+    <color name="black_font">@color/md_grey_900</color>
+
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>
     <color name="md_red_100">#FFCDD2</color>

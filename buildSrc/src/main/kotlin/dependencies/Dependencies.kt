@@ -84,4 +84,7 @@ object Dependencies {
 
     const val TABLE_VIEW = "com.github.ISchwarz23:SortableTableView:${BuildDependenciesVersions.tableView}"
 
+    //first letter big size for news
+    const val DROP_CAP = "com.novoda:drop-cap:${BuildDependenciesVersions.DROP_CAP}"
+
 }

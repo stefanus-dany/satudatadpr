@@ -10,7 +10,7 @@ import com.satudata.home.databinding.ItemListProvinceBinding
 import com.satudata.views.extensions.setSafeOnClickListener
 
 class HeatmapAdapter(private var mCallback: moveCamera) :
-    RecyclerView.Adapter<HeatmapAdapter.CourseViewHolder>() {
+    RecyclerView.Adapter<HeatmapAdapter.HeatmapViewHolder>() {
     private var dataProvince = ArrayList<HeatmapEntity>()
 
     fun setdata(data: List<HeatmapEntity>?) {
@@ -19,20 +19,20 @@ class HeatmapAdapter(private var mCallback: moveCamera) :
         this.dataProvince.addAll(data)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeatmapViewHolder {
         val itemHeatmap =
             ItemListProvinceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CourseViewHolder(itemHeatmap, mCallback)
+        return HeatmapViewHolder(itemHeatmap, mCallback)
     }
 
-    override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HeatmapViewHolder, position: Int) {
         val data = dataProvince[position]
         holder.bind(data)
     }
 
     override fun getItemCount(): Int = dataProvince.size
 
-    class CourseViewHolder(private val binding: ItemListProvinceBinding, private val mCallback: moveCamera) :
+    class HeatmapViewHolder(private val binding: ItemListProvinceBinding, private val mCallback: moveCamera) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: HeatmapEntity) {
