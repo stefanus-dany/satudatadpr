@@ -8,29 +8,394 @@
     tools:context="com.satudata.dashboard.DashboardFragment">
 
     <TextView
+        style="@style/formatFont.bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Dashboard Sikorup"
-        style="@style/formatFont.bold"
-        android:textSize="@dimen/large_text"/>
+        android:paddingStart="@dimen/layout_padding_start_large_size"
+        android:paddingTop="@dimen/layout_padding_top_large_size"
+        android:text="Dashboard"
+        android:textSize="30sp" />
 
-    <Spinner
-        android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
-        android:id="@+id/spinner_dashboard"
-        android:layout_width="match_parent"
+    <TextView
+        style="@style/formatFont"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"/>
+        android:layout_gravity="start"
+        android:paddingStart="@dimen/layout_padding_start_large_size"
+        android:text="Sistem Informasi Pemilihan Umum (SIPILU)"
+        android:textColor="@color/black_font"
+        android:textSize="@dimen/medium_text" />
 
-<!--    <com.github.mikephil.charting.charts.LineChart-->
-<!--        android:layout_width="match_parent"-->
-
-<!--        android:layout_height="wrap_content"/>-->
-
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fl_container_chart"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_padding_large_size">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_dash1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_top_medium_size">
+
+                <FrameLayout
+                    android:id="@+id/fl_container_dash1"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:alpha="0.5"
+                    android:background="@drawable/bg_dash1_rounded_bottom"
+                    app:layout_constraintBottom_toBottomOf="@id/cv_dash1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_dash1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_primary"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="@id/fl_container_dash1"
+                    app:layout_constraintEnd_toEndOf="@id/fl_container_dash1"
+                    app:layout_constraintStart_toStartOf="@id/fl_container_dash1"
+                    app:layout_constraintTop_toTopOf="@id/fl_container_dash1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_title_dash1"
+                            style="@style/formatFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/layout_margin_start_small_size"
+                            android:layout_marginTop="@dimen/layout_margin_top_small_size"
+                            android:text="Populasi Indonesia"
+                            android:textColor="@color/color_secondary"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_body_dash1"
+                            style="@style/formatFont.bold"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/layout_margin_small_size"
+                            android:layout_marginBottom="@dimen/layout_margin_bottom_small_size"
+                            android:gravity="center_horizontal"
+                            android:text="273.500.000"
+                            android:textColor="@color/color_secondary"
+                            android:textSize="@dimen/xxxlarge_text"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/tv_title_dash1"
+                            app:layout_constraintTop_toBottomOf="@id/tv_title_dash1" />
+
+                        <TextView
+                            android:id="@+id/tv_footer_dash1"
+                            style="@style/formatFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="orang"
+                            android:textColor="@color/color_secondary"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_body_dash1"
+                            app:layout_constraintStart_toEndOf="@id/tv_body_dash1"
+                            app:layout_constraintTop_toTopOf="@id/tv_body_dash1" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_dash2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_top_medium_size">
+
+                <FrameLayout
+                    android:id="@+id/fl_container_dash2"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:alpha="0.5"
+                    android:background="@drawable/bg_dash2_rounded_bottom"
+                    app:layout_constraintBottom_toBottomOf="@id/cv_dash2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_dash2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/dash2_color"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="@id/fl_container_dash2"
+                    app:layout_constraintEnd_toEndOf="@id/fl_container_dash2"
+                    app:layout_constraintStart_toStartOf="@id/fl_container_dash2"
+                    app:layout_constraintTop_toTopOf="@id/fl_container_dash2">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_title_dash2"
+                            style="@style/formatFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/layout_margin_start_small_size"
+                            android:layout_marginTop="@dimen/layout_margin_top_small_size"
+                            android:text="Daftar Pemilih Tetap (DPT)"
+                            android:textColor="@color/color_secondary"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_body_dash2"
+                            style="@style/formatFont.bold"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/layout_margin_small_size"
+                            android:layout_marginBottom="@dimen/layout_margin_bottom_small_size"
+                            android:gravity="center_horizontal"
+                            android:text="201.301.000"
+                            android:textColor="@color/color_secondary"
+                            android:textSize="@dimen/xxxlarge_text"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/tv_title_dash2"
+                            app:layout_constraintTop_toBottomOf="@id/tv_title_dash2" />
+
+                        <TextView
+                            android:id="@+id/tv_footer_dash2"
+                            style="@style/formatFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="total DPT"
+                            android:textColor="@color/color_secondary"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_body_dash2"
+                            app:layout_constraintStart_toEndOf="@id/tv_body_dash2"
+                            app:layout_constraintTop_toTopOf="@id/tv_body_dash2" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_dash3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_top_medium_size">
+
+                <FrameLayout
+                    android:id="@+id/fl_container_dash3"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:alpha="0.5"
+                    android:background="@drawable/bg_dash3_rounded_bottom"
+                    app:layout_constraintBottom_toBottomOf="@id/cv_dash3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_dash3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/dash3_color"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="@id/fl_container_dash3"
+                    app:layout_constraintEnd_toEndOf="@id/fl_container_dash3"
+                    app:layout_constraintStart_toStartOf="@id/fl_container_dash3"
+                    app:layout_constraintTop_toTopOf="@id/fl_container_dash3">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_title_dash3"
+                            style="@style/formatFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/layout_margin_start_small_size"
+                            android:layout_marginTop="@dimen/layout_margin_top_small_size"
+                            android:text="Rekapitulasi"
+                            android:textColor="@color/color_secondary"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_body_dash3"
+                            style="@style/formatFont.bold"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/layout_margin_small_size"
+                            android:layout_marginBottom="@dimen/layout_margin_bottom_small_size"
+                            android:gravity="center_horizontal"
+                            android:text="199.301.000"
+                            android:textColor="@color/color_secondary"
+                            android:textSize="@dimen/xxxlarge_text"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/tv_title_dash3"
+                            app:layout_constraintTop_toBottomOf="@id/tv_title_dash3" />
+
+                        <TextView
+                            android:id="@+id/tv_footer_dash3"
+                            style="@style/formatFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="suara"
+                            android:textColor="@color/color_secondary"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_body_dash3"
+                            app:layout_constraintStart_toEndOf="@id/tv_body_dash3"
+                            app:layout_constraintTop_toTopOf="@id/tv_body_dash3" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_dash4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_top_medium_size">
+
+                <FrameLayout
+                    android:id="@+id/fl_container_dash4"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:alpha="0.5"
+                    android:background="@drawable/bg_dash4_rounded_bottom"
+                    app:layout_constraintBottom_toBottomOf="@id/cv_dash4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_dash4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/dash4_color"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="@id/fl_container_dash4"
+                    app:layout_constraintEnd_toEndOf="@id/fl_container_dash4"
+                    app:layout_constraintStart_toStartOf="@id/fl_container_dash4"
+                    app:layout_constraintTop_toTopOf="@id/fl_container_dash4">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_title_dash4"
+                            style="@style/formatFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/layout_margin_start_small_size"
+                            android:layout_marginTop="@dimen/layout_margin_top_small_size"
+                            android:text="Golongan Putih"
+                            android:textColor="@color/color_secondary"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_body_dash4"
+                            style="@style/formatFont.bold"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/layout_margin_small_size"
+                            android:layout_marginBottom="@dimen/layout_margin_bottom_small_size"
+                            android:gravity="center_horizontal"
+                            android:text="2.000.000"
+                            android:textColor="@color/color_secondary"
+                            android:textSize="@dimen/xxxlarge_text"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/tv_title_dash4"
+                            app:layout_constraintTop_toBottomOf="@id/tv_title_dash4" />
+
+                        <TextView
+                            android:id="@+id/tv_footer_dash4"
+                            style="@style/formatFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="orang"
+                            android:textColor="@color/color_secondary"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_body_dash4"
+                            app:layout_constraintStart_toEndOf="@id/tv_body_dash4"
+                            app:layout_constraintTop_toTopOf="@id/tv_body_dash4" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--        here-->
+
+            <FrameLayout
+                android:id="@+id/fl_container_chart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_heatmap"
+                style="@style/formatFont.semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
+                android:text="Heatmap of Indonesia"
+                android:textSize="@dimen/large_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fl_container_chart" />
+
+            <ImageView
+                android:id="@+id/iv_heatmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/indonesia_map"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_heatmap" />
+
+            <TextView
+                android:id="@+id/running_text_heatmap"
+                style="@style/formatFont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_top_medium_size"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="Jumlah pemilih: Sumatera Utara (6.138.630), Jawa Barat (11.632.816), Kepulauan Riau (1.168.188),  Riau (2.458.859)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_heatmap" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

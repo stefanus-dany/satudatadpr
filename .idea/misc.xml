@@ -40,18 +40,28 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/SatuDataDPRRI/dashboard/src/main/res/layout/slide_item_container.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SatuDataDPRRI/home/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.16576576576576577" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/app/src/main/res/layout/activity_authentication.xml" value="0.1518018018018018" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/app/src/main/res/layout/activity_main.xml" value="0.1518018018018018" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/app/src/main/res/layout/activity_splashscreen.xml" value="0.1518018018018018" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/app/src/main/res/layout/fragment_data.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/app/src/main/res/layout/fragment_login.xml" value="0.11981981981981982" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/app/src/main/res/layout/fragment_onboarding.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/app/src/main/res/layout/fragment_profile.xml" value="0.1518018018018018" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_dash1_rounded_bottom.xml" value="0.16576576576576577" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_dash2_rounded_bottom.xml" value="0.16576576576576577" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_dash3_rounded_bottom.xml" value="0.16576576576576577" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_dash4_rounded_bottom.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_gradient_black.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_microphone.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_rounded_bottom.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_rounded_bottom_right.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_rounded_corner.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/bg_rounded_top_left.xml" value="0.16576576576576577" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/btn_primary.xml" value="0.16576576576576577" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/btn_primary_disabled.xml" value="0.16576576576576577" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/btn_secondary.xml" value="0.16216216216216217" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/btn_secondary_enabled.xml" value="0.16216216216216217" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/cv_home_transition.xml" value="0.12972972972972974" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/ic_arrow_back_white.xml" value="0.1398148148148148" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/ic_close.xml" value="0.1398148148148148" />
@@ -68,7 +78,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/primary_color_gradient.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/commons/resources/src/main/res/drawable/searchview_background.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/dashboard/src/main/res/layout/fragment_bar_chart.xml" value="0.1518018018018018" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/dashboard/src/main/res/layout/fragment_dashboard.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/dashboard/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/dashboard/src/main/res/layout/slide_item_container.xml" value="0.1518018018018018" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/data/src/main/res/layout/fragment_data.xml" value="0.1518018018018018" />
         <entry key="..\:/Users/User/AndroidStudioProjects/satudatadpr/home/src/main/res/drawable/bg_rounded_grey_stroke.xml" value="0.1398148148148148" />

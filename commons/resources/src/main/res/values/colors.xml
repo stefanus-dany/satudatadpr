@@ -14,6 +14,11 @@
     <color name="grey_font">#ff9e9e9e</color>
     <color name="black_font">@color/md_grey_900</color>
 
+    <!--color dashboard-->
+    <color name="dash2_color">#E22B6D</color>
+    <color name="dash3_color">#2B53E2</color>
+    <color name="dash4_color">#1FBA41</color>
+
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>
     <color name="md_red_100">#FFCDD2</color>
