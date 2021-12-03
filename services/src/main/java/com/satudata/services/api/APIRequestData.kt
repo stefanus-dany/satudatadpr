@@ -1,6 +1,8 @@
 package com.satudata.services.api
 
+import com.satudata.services.response.data.DPTResponse
 import com.satudata.services.response.data.PopulationResponse
+import com.satudata.services.response.data.RekapitulasiResponse
 import com.satudata.services.response.login.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Field
@@ -19,4 +21,10 @@ interface APIRequestData {
 
     @GET("sipilu/get_population.php")
     fun getEmployees(): Call<PopulationResponse>
+
+    @GET("sipilu/get_rekapitulasi.php")
+    fun getRekapitulasi(): Call<RekapitulasiResponse>
+
+    @GET("sipilu/get_dpt.php")
+    fun getDPT(): Call<DPTResponse>
 }

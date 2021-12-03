@@ -18,15 +18,14 @@ import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import retrofit2.Callback
 import retrofit2.Response
 
 
 class DataFragment : Fragment() {
 
-    private lateinit var data: DataViewModel
     private var _binding: FragmentDataBinding? = null
+    private lateinit var viewModel: DataViewModel
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -42,18 +41,21 @@ class DataFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        data =
-            ViewModelProvider(this).get(DataViewModel::class.java)
+        viewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelProvider.NewInstanceFactory()
+        )[DataViewModel::class.java]
 
         _binding = FragmentDataBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 //        binding.tableView.columnCount = 3
 
-        val columnModel = TableColumnDpWidthModel(context, 3, 200)
-        columnModel.setColumnWidth(0, 300)
-        columnModel.setColumnWidth(1, 100)
+        val columnModel = TableColumnDpWidthModel(context, 4, 200)
+        columnModel.setColumnWidth(0, 250)
+        columnModel.setColumnWidth(1, 200)
         columnModel.setColumnWidth(2, 100)
+        columnModel.setColumnWidth(3, 100)
 //        val columnModel = TableColumnWeightModel(3)
 //        columnModel.setColumnWeight(1, 1)
 //        columnModel.setColumnWeight(2, 1)
@@ -66,7 +68,10 @@ class DataFragment : Fragment() {
 //        columnModel.setColumnWeight(7, 1)
 
         binding.tableView.columnModel = columnModel
-        getPopulation()
+//        getPopulation()
+//        observeDataPopulation()
+//        observeDataRekapitulasi()
+        observeDataDPT()
 //        val tableView: TableView<Array<String>> =
 //            binding.tableView as TableView<Array<String>>
 ////        tableView.dataAdapter = SimpleTableDataAdapter(requireContext(), tmpData)
@@ -75,6 +80,77 @@ class DataFragment : Fragment() {
 //        tableView.setColumnComparator(0, CarProducerComparator())
 //        binding.tableView.setColumnComparator(1, comparatorString())
         return root
+    }
+
+    private fun observeDataPopulation() {
+        viewModel.getPopulation().observe(viewLifecycleOwner) {
+            val columnModel = TableColumnDpWidthModel(context, 3, 200)
+            columnModel.setColumnWidth(0, 300)
+            columnModel.setColumnWidth(1, 100)
+            columnModel.setColumnWidth(2, 100)
+            binding.tableView.columnModel = columnModel
+
+            val tableView: TableView<Array<String>> =
+                binding.tableView as TableView<Array<String>>
+            tableView.dataAdapter =
+                SimpleTableDataAdapter(requireContext(), it)
+            tableView.headerAdapter =
+                SimpleTableHeaderAdapter(
+                    context,
+                    "Provinsi",
+                    "Tahun",
+                    "Total"
+                )
+
+        }
+    }
+
+    private fun observeDataRekapitulasi() {
+        viewModel.getRekapitulasi().observe(viewLifecycleOwner) {
+            val columnModel = TableColumnDpWidthModel(context, 4, 200)
+            columnModel.setColumnWidth(0, 250)
+            columnModel.setColumnWidth(1, 200)
+            columnModel.setColumnWidth(2, 100)
+            columnModel.setColumnWidth(3, 100)
+            binding.tableView.columnModel = columnModel
+
+            val tableView: TableView<Array<String>> =
+                binding.tableView as TableView<Array<String>>
+            tableView.dataAdapter =
+                SimpleTableDataAdapter(requireContext(), it)
+            tableView.headerAdapter =
+                SimpleTableHeaderAdapter(
+                    context,
+                    "Provinsi",
+                    "Nama Pemilu",
+                    "Tahun",
+                    "Total"
+                )
+
+        }
+    }
+
+    private fun observeDataDPT() {
+        viewModel.getDPT().observe(viewLifecycleOwner) {
+            val columnModel = TableColumnDpWidthModel(context, 3, 200)
+            columnModel.setColumnWidth(0, 300)
+            columnModel.setColumnWidth(1, 100)
+            columnModel.setColumnWidth(2, 100)
+            binding.tableView.columnModel = columnModel
+
+            val tableView: TableView<Array<String>> =
+                binding.tableView as TableView<Array<String>>
+            tableView.dataAdapter =
+                SimpleTableDataAdapter(requireContext(), it)
+            tableView.headerAdapter =
+                SimpleTableHeaderAdapter(
+                    context,
+                    "Provinsi",
+                    "Tahun",
+                    "Total"
+                )
+
+        }
     }
 
     override fun onDestroyView() {
