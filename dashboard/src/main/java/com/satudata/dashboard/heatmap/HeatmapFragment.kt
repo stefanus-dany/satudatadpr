@@ -1,8 +1,7 @@
-package com.satudata.home
+package com.satudata.dashboard.heatmap
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Build.ID
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.view.LayoutInflater
@@ -21,7 +20,8 @@ import com.google.android.gms.maps.model.TileOverlayOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.maps.android.heatmaps.HeatmapTileProvider
 import com.google.maps.android.heatmaps.WeightedLatLng
-import com.satudata.home.databinding.FragmentHeatmapBinding
+import com.satudata.dashboard.R
+import com.satudata.dashboard.databinding.FragmentHeatmapBinding
 import com.satudata.views.extensions.setSafeOnClickListener
 import org.json.JSONArray
 import java.util.*
@@ -44,7 +44,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamer
 //        val mapFragment = fragmentManager?.findFragmentById(R.id.map_fragment) as SupportMapFragment
         //API key in AndroidManifest home module
         val mapFragment =
-            childFragmentManager.findFragmentById(com.satudata.home.R.id.map_fragment) as SupportMapFragment
+            childFragmentManager.findFragmentById(com.satudata.dashboard.R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         viewModel = ViewModelProvider(

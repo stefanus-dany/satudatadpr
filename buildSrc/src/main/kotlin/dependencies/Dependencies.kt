@@ -87,4 +87,8 @@ object Dependencies {
     //first letter big size for news
     const val DROP_CAP = "com.novoda:drop-cap:${BuildDependenciesVersions.DROP_CAP}"
 
+    //heatmap google map
+    const val ANDROID_MAPS_UTILS = "com.google.maps.android:android-maps-utils:${BuildDependenciesVersions.ANDROID_MAPS_UTILS}"
+    const val PLAY_SERVICE_MAPS = "com.google.android.gms:play-services-maps:${BuildDependenciesVersions.PLAY_SERVICE_MAPS}"
+
 }

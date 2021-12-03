@@ -27,6 +27,7 @@
         android:textSize="@dimen/medium_text" />
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -352,23 +353,45 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!--        here-->
+            <!--here-->
 
             <FrameLayout
                 android:id="@+id/fl_container_chart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/tv_heatmap"
-                style="@style/formatFont.semibold"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/llTitleHeatmap"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
-                android:text="Heatmap of Indonesia"
-                android:textSize="@dimen/large_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fl_container_chart" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="0.5"
+                    android:id="@+id/tv_heatmap"
+                    style="@style/formatFont.semibold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
+                    android:text="Heatmap of Indonesia"
+                    android:textSize="@dimen/large_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fl_container_chart" />
+
+                <TextView
+                    android:id="@+id/tv_more"
+                    style="@style/formatFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
+                    android:text="See More"
+                    android:gravity="end"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/large_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fl_container_chart" />
+
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/iv_heatmap"

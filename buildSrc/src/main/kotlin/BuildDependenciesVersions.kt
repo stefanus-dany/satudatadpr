@@ -92,4 +92,7 @@ object BuildDependenciesVersions {
     //first letter big size for news
     const val DROP_CAP = "1.1.0"
 
+    const val ANDROID_MAPS_UTILS = "1.0.2"
+    const val PLAY_SERVICE_MAPS = "18.0.0"
+
 }

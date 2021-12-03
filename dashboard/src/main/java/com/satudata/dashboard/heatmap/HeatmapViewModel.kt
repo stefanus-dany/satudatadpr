@@ -1,4 +1,4 @@
-package com.satudata.home
+package com.satudata.dashboard.heatmap
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

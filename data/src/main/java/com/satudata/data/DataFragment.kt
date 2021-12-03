@@ -1,16 +1,26 @@
 package com.satudata.data
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.satudata.data.databinding.FragmentDataBinding
+import com.satudata.services.api.RetrofitServer
+import com.satudata.services.response.data.PopulationResponse
 import de.codecrafters.tableview.TableView
-import de.codecrafters.tableview.model.TableColumnWeightModel
+import de.codecrafters.tableview.model.TableColumnDpWidthModel
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class DataFragment : Fragment() {
@@ -22,8 +32,10 @@ class DataFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    val DATA_TO_SHOW =
-        arrayOf(arrayOf("This", "is", "a", "test"), arrayOf("and", "a", "second", "test"))
+    private val populationData: ArrayList<Array<String>> = arrayListOf()
+
+//    val DATA_TO_SHOW =
+//        arrayOf(arrayOf("This", "is", "a", "test"), arrayOf("and", "a", "second", "test"))
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,20 +48,32 @@ class DataFragment : Fragment() {
         _binding = FragmentDataBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.tableView.columnCount = 4
+//        binding.tableView.columnCount = 3
 
-        val columnModel = TableColumnWeightModel(5)
-        columnModel.setColumnWeight(1, 2)
-        columnModel.setColumnWeight(2, 3)
+        val columnModel = TableColumnDpWidthModel(context, 3, 200)
+        columnModel.setColumnWidth(0, 300)
+        columnModel.setColumnWidth(1, 100)
+        columnModel.setColumnWidth(2, 100)
+//        val columnModel = TableColumnWeightModel(3)
+//        columnModel.setColumnWeight(1, 1)
+//        columnModel.setColumnWeight(2, 1)
+//        columnModel.setColumnWeight(3, 1)
+//        columnModel.setColumnWeight(4, 1)
+//        columnModel.setColumnWeight(3, 1)
+//        columnModel.setColumnWeight(4, 1)
+//        columnModel.setColumnWeight(5, 1)
+//        columnModel.setColumnWeight(6, 1)
+//        columnModel.setColumnWeight(7, 1)
 
         binding.tableView.columnModel = columnModel
-        val tableView: TableView<Array<String>> =
-            binding.tableView as TableView<Array<String>>
-        tableView.dataAdapter = SimpleTableDataAdapter(requireContext(), DATA_TO_SHOW)
-        tableView.headerAdapter =
-            SimpleTableHeaderAdapter(requireContext(), "This", "is", "a", "test")
+        getPopulation()
+//        val tableView: TableView<Array<String>> =
+//            binding.tableView as TableView<Array<String>>
+////        tableView.dataAdapter = SimpleTableDataAdapter(requireContext(), tmpData)
+//        tableView.headerAdapter =
+//            SimpleTableHeaderAdapter(requireContext(), "Provinsi", "Tahun", "Total")
 //        tableView.setColumnComparator(0, CarProducerComparator())
-        binding.tableView.setColumnComparator(1, comparatorString())
+//        binding.tableView.setColumnComparator(1, comparatorString())
         return root
     }
 
@@ -57,21 +81,54 @@ class DataFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-}
 
-class comparatorString : Comparator<String?>{
-    override fun compare(o1: String?, o2: String?): Int {
-        if(o1 == null || o2 == null){
-            return 0;
+    private fun getPopulation() {
+        lifecycleScope.launch(Dispatchers.Default) {
+            val api = RetrofitServer().getInstance()
+            api.getEmployees()
+                .enqueue(object : Callback<PopulationResponse> {
+                    override fun onResponse(
+                        call: retrofit2.Call<PopulationResponse>,
+                        response: Response<PopulationResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            val tmpArray: MutableList<Array<String>> = arrayListOf()
+                            for (i in response.body()?.data?.indices!!) {
+                                val namaProvinsi = response.body()!!.data[i].nama_provinsi
+                                val tahun = response.body()!!.data[i].tahun
+                                val total = response.body()!!.data[i].total.toString()
+                                val result: Array<String> = arrayOf(namaProvinsi, tahun, total)
+                                tmpArray.add(result)
+                            }
+                            populationData.addAll(tmpArray)
+                            val tableView: TableView<Array<String>> =
+                                binding.tableView as TableView<Array<String>>
+                            tableView.dataAdapter =
+                                SimpleTableDataAdapter(requireContext(), populationData)
+                            tableView.headerAdapter =
+                                SimpleTableHeaderAdapter(
+                                    requireContext(),
+                                    "Provinsi",
+                                    "Tahun",
+                                    "Total"
+                                )
+
+                        } else Toast.makeText(
+                            requireContext(),
+                            response.errorBody()!!.toString(),
+                            Toast.LENGTH_SHORT
+                        ).show() // this will tell you why your api doesnt work most of time
+
+
+                    }
+
+                    override fun onFailure(call: retrofit2.Call<PopulationResponse>, t: Throwable) {
+                        Log.e("tues", "onFailure: ${t.message}")
+                    }
+
+                })
         }
-        return o1.compareTo(o2)
+
     }
 
-
 }
-
-//private class CarProducerComparator : Comparator<String?> {
-//    override fun compare(car1: String, car2: String): Int {
-//        return car1.getProducer().getName().compareTo(car2.getProducer().getName())
-//    }
-//}

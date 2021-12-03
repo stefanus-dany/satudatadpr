@@ -42,6 +42,7 @@ dependencies {
     implementation project(':home')
     implementation project(':dashboard')
     implementation project(':data')
+    implementation project(':services')
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
@@ -52,6 +53,8 @@ dependencies {
     implementation(Dependencies.NAVIGATION_FRAGMENT)
     implementation(Dependencies.NAVIGATION_UI)
     implementation(Dependencies.RETROFIT_CONVERTER_GSON)
+    implementation(Dependencies.COROUTINES)
+    implementation(Dependencies.COROUTINES_ANDROID)
     //imageslider
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 

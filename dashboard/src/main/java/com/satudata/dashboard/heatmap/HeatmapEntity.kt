@@ -1,4 +1,4 @@
-package com.satudata.home
+package com.satudata.dashboard.heatmap
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

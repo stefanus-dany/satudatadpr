@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/heatmapFragment"
-        android:name="com.satudata.home.HeatmapFragment"
+        android:name="com.satudata.dashboard.heatmap.HeatmapFragment"
         android:label="HeatmapFragment"
         tools:layout="@layout/fragment_heatmap"/>
     <fragment

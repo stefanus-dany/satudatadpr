@@ -19,10 +19,6 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
-    buildFeatures {
-        viewBinding true
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -40,35 +36,12 @@ android {
 
 dependencies {
 
-    implementation project(':commons:resources')
-    implementation project(':commons:views')
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
-    implementation(Dependencies.CONSTRAINT_LAYOUT)
-    implementation(Dependencies.LIFECYCLE_LIVEDATA)
-    implementation(Dependencies.LIFECYCLE_VIEWMODEL)
-    implementation(Dependencies.FRAGMENT_KTX)
-    implementation(Dependencies.NAVIGATION_FRAGMENT)
-    implementation(Dependencies.NAVIGATION_UI)
-
-    //viewPager 2
-    implementation(Dependencies.VIEW_PAGER2)
-
-    //rounded image
-    implementation(Dependencies.CIRCLE_IMAGE_VIEW)
-
-    implementation(Dependencies.MP_ANDROID_CHART)
-    implementation(Dependencies.ANY_CHART_ANDROID)
-
-    //heatmap google map
-    implementation(Dependencies.ANDROID_MAPS_UTILS)
-    implementation(Dependencies.PLAY_SERVICE_MAPS)
-
-    //testing
-    testImplementation 'junit:junit:'
+    implementation(Dependencies.RETROFIT)
+    implementation(Dependencies.RETROFIT_CONVERTER_GSON)
+    testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
 }

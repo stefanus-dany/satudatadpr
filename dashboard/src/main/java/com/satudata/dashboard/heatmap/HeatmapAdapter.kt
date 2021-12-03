@@ -1,12 +1,9 @@
-package com.satudata.home
+package com.satudata.dashboard.heatmap
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.satudata.home.databinding.ItemListProvinceBinding
+import com.satudata.dashboard.databinding.ItemListProvinceBinding
 import com.satudata.views.extensions.setSafeOnClickListener
 
 class HeatmapAdapter(private var mCallback: moveCamera) :
@@ -32,7 +29,10 @@ class HeatmapAdapter(private var mCallback: moveCamera) :
 
     override fun getItemCount(): Int = dataProvince.size
 
-    class HeatmapViewHolder(private val binding: ItemListProvinceBinding, private val mCallback: moveCamera) :
+    class HeatmapViewHolder(
+        private val binding: ItemListProvinceBinding,
+        private val mCallback: moveCamera
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: HeatmapEntity) {
@@ -45,7 +45,8 @@ class HeatmapAdapter(private var mCallback: moveCamera) :
             }
         }
     }
+
     interface moveCamera {
-        fun moveCameraWithAnimation(lat: Double, long : Double)
+        fun moveCameraWithAnimation(lat: Double, long: Double)
     }
 }
