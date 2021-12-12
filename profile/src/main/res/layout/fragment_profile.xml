@@ -24,49 +24,71 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
-            android:layout_width="match_parent"
+        <!--        <com.google.android.material.appbar.AppBarLayout-->
+        <!--            android:id="@+id/appbar"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+        <!--            <Toolbar-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:background="@color/white"-->
+        <!--                android:paddingHorizontal="20dp"-->
+        <!--                android:paddingVertical="5dp">-->
+
+        <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="match_parent">-->
+
+        <!--                    <ImageView-->
+        <!--                        android:id="@+id/btn_back"-->
+        <!--                        android:layout_width="35dp"-->
+        <!--                        android:layout_height="35dp"-->
+        <!--                        android:src="@drawable/ic_arrow_back_white"-->
+        <!--                        android:visibility="gone"-->
+        <!--                        app:layout_constraintStart_toStartOf="parent"-->
+        <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--                    <TextView-->
+        <!--                        style="@style/formatFont.semibold"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:textSize="@dimen/large_text"-->
+        <!--                        android:layout_marginEnd="@dimen/layout_margin_end_medium_size"-->
+        <!--                        android:text="Profile"-->
+        <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                        app:layout_constraintStart_toStartOf="parent"-->
+        <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+        <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <!--            </Toolbar>-->
+        <!--        </com.google.android.material.appbar.AppBarLayout>-->
+
+        <TextView
+            style="@style/formatFont.bold"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="@dimen/layout_padding_start_large_size"
+            android:paddingTop="@dimen/layout_padding_top_large_size"
+            android:text="Profile"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="5dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/btn_back"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:src="@drawable/ic_arrow_back_white"
-                        android:visibility="gone"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        style="@style/formatFont.semibold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/large_text"
-                        android:layout_marginEnd="@dimen/layout_margin_end_medium_size"
-                        android:text="Profile"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
+        <TextView
+            style="@style/formatFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:paddingStart="@dimen/layout_padding_start_large_size"
+            android:text="Sistem Informasi Pemilihan Umum (SIPILU)"
+            android:textColor="@color/black_font"
+            android:textSize="@dimen/medium_text" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_fullname"

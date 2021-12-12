@@ -29,16 +29,16 @@ class OnboardingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
 
         //onboarding message
-        listTitle = arrayOf("Informasi Korupsi", "Grafik", "Kinerja Penegakan Korupsi")
+        listTitle = arrayOf("Berita Pemilihan Umum", "Dashboard Informatif", "Data Pemilihan Umum")
         listSubTitle = arrayOf(
-            "Merangkum informasi penting terkait kasus korupsi.",
-            "Menggunakan berbagai grafik dan penjelasan yang mudah dipahami.",
-            "Demi meningkatnya kinerja penegakan korupsi serta SDM yang mumpuni."
+            "Berbagai macam berita seputar pemilihan umum.",
+            "Merangkum informasi penting terkait pemilihan umum.",
+            "Beragam data pemilihan umum di Indonesia."
         )
 
         adapter = SliderAdapter(listTitle, listSubTitle)
@@ -59,20 +59,12 @@ class OnboardingFragment : Fragment() {
             findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
         }
 
-        binding.btnRegister.setSafeOnClickListener {
-            findNavController().navigate(R.id.action_onboardingFragment_to_registerFragment)
-        }
+//        binding.btnRegister.setSafeOnClickListener {
+//            findNavController().navigate(R.id.action_onboardingFragment_to_registerFragment)
+//        }
 
         return binding.root
     }
-
-//    private fun makeCurrentFragment(fragment: Fragment) {
-//        fragmentManager?.beginTransaction()?.apply {
-//            replace(R.id.fl_wrapper, fragment)
-//            addToBackStack(null)
-//            commit()
-//        }
-//    }
 
     //handler for time onborading move to another view
     val mHandler: Handler = Handler()

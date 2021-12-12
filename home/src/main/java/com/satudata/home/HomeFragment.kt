@@ -1,9 +1,9 @@
 package com.satudata.home
 
-//import com.satudata.home.databinding.FragmentHomeBinding
-
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
+import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
@@ -20,10 +20,6 @@ import com.satudata.services.model.BeritaModel
 import com.satudata.views.extensions.setSafeOnClickListener
 import android.os.Parcelable
 
-
-
-
-
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
@@ -36,6 +32,7 @@ class HomeFragment : Fragment() {
 
     //save onpause
     private var category = 0
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +44,13 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        sharedPreferences = this.activity?.getSharedPreferences(
+            "sharedPrefsDetailUser",
+            Context.MODE_PRIVATE
+        ) as SharedPreferences
+
+        val profileName = sharedPreferences.getString("profil_name", null)
+        binding.tvHi.text = "Hi, $profileName"
         observeDataBerita()
 
         binding.cvCategoryPemilu2024.setSafeOnClickListener {
@@ -104,42 +108,6 @@ class HomeFragment : Fragment() {
                 )
             )
         }
-
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
-
-//        val imageList = ArrayList<SlideModel>() // Create image list
-//
-//// imageList.add(SlideModel("String Url" or R.drawable)
-//// imageList.add(SlideModel("String Url" or R.drawable, "title") You can add title
-//
-//        val scaleTypes = ScaleTypes.FIT
-//        imageList.add(
-//            SlideModel(
-//                R.drawable.one,
-//                "The animal population decreased by 58 percent in 42 years.",
-//                scaleTypes
-//            )
-//        )
-//        imageList.add(
-//            SlideModel(
-//                R.drawable.two,
-//                "Elephants and tigers may become extinct.",
-//                scaleTypes
-//            )
-//        )
-//        imageList.add(SlideModel(R.drawable.three, "And people do that.", scaleTypes))
-
-//        binding.imageSlider.setImageList(imageList)
-//
-//        binding.runningTextHeatmap.ellipsize = TextUtils.TruncateAt.MARQUEE
-//        binding.runningTextHeatmap.isSelected = true
-//
-//        binding.tvMoreHeatmap.setSafeOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_heatmapFragment)
-//        }
 
         return binding.root
     }
@@ -263,10 +231,10 @@ class HomeFragment : Fragment() {
                         }
                     }
                 }
-
-
             }
+            binding.progressBar.visibility = View.GONE
         }
+
     }
 
 

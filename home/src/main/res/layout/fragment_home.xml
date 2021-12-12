@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"
-        android:text="Hi, Dany"
+        tools:text="Hi, Dany"
         android:textColor="@color/grey_font"
         android:textSize="@dimen/medium_text"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/layout_margin_top_large_size"
-        android:text="What a beautiful day\nOur data is waiting for you"
+        android:text="Sistem Pemilihan Umum (SIPILU) Satu Data DPR RI"
         android:textColor="@color/black_font"
         android:textSize="@dimen/xxxlarge_text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,6 +89,7 @@
         app:layout_constraintTop_toBottomOf="@id/cl_container">
 
         <LinearLayout
+            android:id="@+id/ll"
             android:paddingHorizontal="@dimen/layout_padding_large_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -180,5 +181,13 @@
         android:layout_marginTop="@dimen/layout_margin_top_medium_size"
         app:layout_constraintTop_toBottomOf="@id/hsv_categories" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hsv_categories"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
