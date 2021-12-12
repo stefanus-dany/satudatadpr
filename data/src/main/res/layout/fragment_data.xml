@@ -4,8 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".DataFragment">
+
+    <TextView
+        android:id="@+id/tv_title_data"
+        style="@style/formatFont.bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingStart="@dimen/layout_padding_start_large_size"
+        android:paddingTop="@dimen/layout_padding_top_large_size"
+        android:text="Data"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tv_subtitle_data"
+        style="@style/formatFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_data"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingStart="@dimen/layout_padding_start_large_size"
+        android:text="Sistem Informasi Pemilihan Umum (SIPILU)"
+        android:textColor="@color/black_font"
+        android:textSize="@dimen/medium_text" />
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle_data"
+        android:id="@+id/spinnerData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Spinner
+            android:id="@+id/spinnerDataYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="18dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:id="@+id/spinnerDataCategory"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinnerDataGolputRekapCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerData"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:id="@+id/tv_title_table_data"
+        style="@style/formatFont.bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerDataGolputRekapCategory"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Table Name"
+        android:textSize="@dimen/large_text" />
+
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -13,7 +90,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_table_data"
         android:layout_weight="1">
 
         <de.codecrafters.tableview.SortableTableView

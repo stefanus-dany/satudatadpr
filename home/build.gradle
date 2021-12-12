@@ -42,6 +42,7 @@ dependencies {
 
     implementation project(':commons:resources')
     implementation project(':commons:views')
+    implementation project(':services')
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
@@ -56,6 +57,8 @@ dependencies {
     implementation(Dependencies.RECYCLE_VIEW)
     implementation(Dependencies.GLIDE)
     implementation(Dependencies.DROP_CAP)
+    implementation(Dependencies.RETROFIT)
+    implementation(Dependencies.RETROFIT_CONVERTER_GSON)
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     testImplementation 'junit:junit:'

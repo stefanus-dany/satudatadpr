@@ -29,10 +29,12 @@ class NewsDetailFragment : Fragment() {
         val newsTitle = arguments?.getString(HomeFragment.EXTRA_NEWS_TITLE)
         val newsImage = arguments?.getString(HomeFragment.EXTRA_NEWS_IMAGE)
         val newsBody = arguments?.getString(HomeFragment.EXTRA_NEWS_BODY)
+        val newsSource = arguments?.getString(HomeFragment.EXTRA_NEWS_SOURCE)
 
         binding.tvTitleNews.text = newsTitle
         binding.ivNews.loadImage(newsImage)
         binding.tvBodyNews.setText(newsBody)
+        binding.tvSource.text = "Source:\n$newsSource"
 
         return binding.root
     }

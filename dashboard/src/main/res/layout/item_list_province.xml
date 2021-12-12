@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/layout_margin_top_large_size"
-    android:layout_marginBottom="@dimen/layout_margin_bottom_large_size"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal">
@@ -25,19 +24,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Province Name"
-            style="@style/formatFont"
-            android:textColor="@color/black"/>
+            android:textSize="@dimen/large_text"
+            style="@style/formatFont.bold" />
 
         <TextView
-            android:id="@+id/tv_total"
+            android:id="@+id/tv_populasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Jumlah Pemilih : 1.000.000"
             style="@style/formatFont"
-            android:textColor="@color/color_primary"/>
+            android:textColor="@color/black_font"/>
 
+        <TextView
+            android:id="@+id/tv_dpt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Jumlah Pemilih : 1.000.000"
+            style="@style/formatFont"
+            android:textColor="@color/black_font"/>
 
+        <TextView
+            android:id="@+id/tv_rekap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Jumlah Pemilih : 1.000.000"
+            style="@style/formatFont"
+            android:textColor="@color/black_font"/>
 
+        <TextView
+            android:id="@+id/tv_golput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Jumlah Pemilih : 1.000.000"
+            style="@style/formatFont.semibold"
+            android:textColor="@color/md_red_A700"/>
 
     </LinearLayout>
 

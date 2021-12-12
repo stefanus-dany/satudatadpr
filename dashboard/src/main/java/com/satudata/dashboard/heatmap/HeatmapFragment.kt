@@ -1,13 +1,17 @@
 package com.satudata.dashboard.heatmap
 
+import android.R
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,12 +24,14 @@ import com.google.android.gms.maps.model.TileOverlayOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.maps.android.heatmaps.HeatmapTileProvider
 import com.google.maps.android.heatmaps.WeightedLatLng
-import com.satudata.dashboard.R
+import com.satudata.dashboard.DashboardFragment
 import com.satudata.dashboard.databinding.FragmentHeatmapBinding
+import com.satudata.services.model.HeatmapEntity
 import com.satudata.views.extensions.setSafeOnClickListener
 import org.json.JSONArray
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamera {
 
@@ -35,11 +41,18 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamer
     private lateinit var viewModel: HeatmapViewModel
     private lateinit var bottomSheetBehaviour: BottomSheetBehavior<ViewGroup>
 
+    private lateinit var year: String
+    private lateinit var category: String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHeatmapBinding.inflate(inflater, container, false)
+
+        year = arguments?.getString(DashboardFragment.EXTRA_YEAR).toString()
+        category = arguments?.getString(DashboardFragment.EXTRA_CATEGORY).toString()
+        Log.i("category", "onCreateView: $year $category")
 
 //        val mapFragment = fragmentManager?.findFragmentById(R.id.map_fragment) as SupportMapFragment
         //API key in AndroidManifest home module
@@ -52,16 +65,12 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamer
             ViewModelProvider.NewInstanceFactory()
         )[HeatmapViewModel::class.java]
 
+
         bottomSheetBehaviour = BottomSheetBehavior.from(binding.layoutBottomSheet)
         bottomSheetBehaviour.setBottomSheetCallback(bottomSheetBehaviorCallback)
 
-        heatmapAdapter = HeatmapAdapter(this)
-        with(binding.rvProvince) {
-            layoutManager = LinearLayoutManager(context)
-            adapter = this@HeatmapFragment.heatmapAdapter
-        }
-        heatmapAdapter.setdata(getDataProvince())
 
+        getDataProvince()
         return binding.root
     }
 
@@ -85,39 +94,13 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamer
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        val data = generateHeatMapData()
 
-        val heatMapProvider = HeatmapTileProvider.Builder()
-            .weightedData(data) // load our weighted data
-            .radius(50) // optional, in pixels, can be anything between 20 and 50
-            .maxIntensity(1000.0) // set the maximum intensity
-            .build()
-
-        googleMap.addTileOverlay(TileOverlayOptions().tileProvider(heatMapProvider))
-
+        generateHeatMapData(googleMap = googleMap)
         observeDataProvince(googleMap)
 
         binding.fabBack.setSafeOnClickListener {
             activity?.onBackPressed()
         }
-
-//        binding.btnBali.setSafeOnClickListener {
-//            val baliLatLng = LatLng(-8.335517, 115.178447)
-//            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(baliLatLng, 8f))
-////            val mapRipple: MapRipple = MapRipple(googleMap, baliLatLng, context)
-////
-////            mapRipple.startRippleMapAnimation()
-//        }
-//
-//        binding.btnMalang.setSafeOnClickListener {
-//            val malangLatLng = LatLng(-7.959599, 112.634526)
-//            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(malangLatLng, 8f))
-////            val newarkLatLng = LatLng(40.714086, -74.228697)
-////            val newarkMap = GroundOverlayOptions()
-////                .image(BitmapDescriptorFactory.fromResource(R.drawable.ic_password))
-////                .position(newarkLatLng, 8600f, 6500f)
-////            googleMap.addGroundOverlay(newarkMap)
-//        }
 
         googleMap.setMaxZoomPreference(8f)
         googleMap.setMinZoomPreference(5f)
@@ -133,8 +116,6 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamer
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(tmpLatLng, 8f))
             }
         }
-
-
     }
 
     private fun speak() {
@@ -167,52 +148,120 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamer
         }
     }
 
-    private fun getDataProvince(): ArrayList<HeatmapEntity> {
-        val data = ArrayList<HeatmapEntity>()
-
-        val jsonData = getJsonDataFromAsset("district_data.json")
-        jsonData?.let {
-            for (i in 0 until it.length()) {
-                val entry = it.getJSONObject(i)
-                val id = entry.getInt("id")
-                val name = entry.getString("name")
-                val lat = entry.getDouble("latitude")
-                val long = entry.getDouble("longitude")
-                val total = entry.getLong("total")
-                data.add(
-                    HeatmapEntity(
-                        provinceId = id,
-                        provinceName = name,
-                        provinceData = total,
-                        latitude = lat,
-                        longitude = long
-                    )
-                )
+    private fun getDataProvince() {
+        viewModel.getHeatmap(year, category).observe(viewLifecycleOwner) {
+            heatmapAdapter = HeatmapAdapter(this@HeatmapFragment)
+            with(binding.rvProvince) {
+                layoutManager = LinearLayoutManager(context)
+                adapter = this@HeatmapFragment.heatmapAdapter
             }
+            heatmapAdapter.setdata(it)
+            Log.i("generateHeatMapData", "data aja: $it")
         }
-
-        return data
     }
 
-    private fun generateHeatMapData(): ArrayList<WeightedLatLng> {
-        val data = ArrayList<WeightedLatLng>()
+//    private fun getDataProvince(): ArrayList<HeatmapEntity> {
+//        val listData = ArrayList<HeatmapEntity>()
+//
+//        viewModel.getProvince().observe(viewLifecycleOwner) { dataProvince ->
+//            viewModel.getPopulation().observe(viewLifecycleOwner) { dataPopulation ->
+//                viewModel.getDPT().observe(viewLifecycleOwner) { dataDPT ->
+//                    viewModel.getRekapitulasi().observe(viewLifecycleOwner) { dataRekap ->
+//                        viewModel.getGolput().observe(viewLifecycleOwner) { dataGolput ->
+//                            lifecycleScope.launch(Dispatchers.Default) {
+//                                for (i in dataProvince.indices) {
+//                                    val id = dataProvince[i].id_provinsi
+//                                    val name = dataProvince[i].nama_provinsi
+//                                    val lat = dataProvince[i].latitude
+//                                    val long = dataProvince[i].longitude
+//                                    val populasi = dataPopulation[i].total
+//                                    val dpt = dataDPT[i].total
+//                                    val rekap = dataRekap[i].total
+//                                    val golput = dataGolput[i].total_golput
+//                                    Log.e("HeatmapFragment", "id $id, province $name populasi $populasi, dpt $dpt, rekap $rekap, golput:$golput", )
+//                                    listData.add(
+//                                        HeatmapEntity(
+//                                            provinceId = id,
+//                                            provinceName = name,
+//                                            latitude = lat,
+//                                            longitude = long,
+//                                            populasi = populasi,
+//                                            dpt = dpt,
+//                                            rekapitulasi = rekap,
+//                                            golput = golput
+//                                        )
+//                                    )
+//                                }
+//
+//                                withContext(Dispatchers.Main) {
+//                                    heatmapAdapter = HeatmapAdapter(this@HeatmapFragment)
+//                                    with(binding.rvProvince) {
+//                                        layoutManager = LinearLayoutManager(context)
+//                                        adapter = this@HeatmapFragment.heatmapAdapter
+//                                    }
+//                                    heatmapAdapter.setdata(listData)
+//                                    Log.e("HeatmapFragment", "listData ${listData}")
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//
+//
+//        }
+//
+//        return listData
+//    }
 
-        val jsonData = getJsonDataFromAsset("district_data.json")
-        jsonData?.let {
-            for (i in 0 until it.length()) {
-                val entry = it.getJSONObject(i)
-                val lat = entry.getDouble("latitude")
-                val lon = entry.getDouble("longitude")
-                val density = entry.getDouble("density")
+    private fun generateHeatMapData(googleMap: GoogleMap) {
+        val data = ArrayList<WeightedLatLng>()
+        viewModel.getHeatmap(year, category).observe(viewLifecycleOwner) {
+            for (i in it.indices) {
+                val lat = it[i].latitude
+                val lon = it[i].longitude
+                val dpt = (it[i].dpt.toDouble())
+                val golput = (it[i].total_golput.toDouble())
+                //5000 maks heatmap density
+                val density = (golput/dpt)*5000
 
                 if (density != 0.0) {
                     val weightedLatLng = WeightedLatLng(LatLng(lat, lon), density)
                     data.add(weightedLatLng)
+                    Log.i("generateHeatMapData", "data dalem: $data")
                 }
+                Log.i("generateHeatMapData", "mid: $data")
             }
+            Log.i("generateHeatMapData", "data diluar: $data")
+
+            val heatMapProvider = HeatmapTileProvider.Builder()
+                .weightedData(data) // load our weighted data
+                .radius(50) // optional, in pixels, can be anything between 20 and 50
+                .maxIntensity(1000.0) // set the maximum intensity
+                .build()
+
+            googleMap.addTileOverlay(TileOverlayOptions().tileProvider(heatMapProvider))
         }
 
-        return data
+
+//        val data = ArrayList<WeightedLatLng>()
+
+//        val jsonData = getJsonDataFromAsset("district_data.json")
+//        jsonData?.let {
+//            for (i in 0 until it.length()) {
+//                val entry = it.getJSONObject(i)
+//                val lat = entry.getDouble("latitude")
+//                val lon = entry.getDouble("longitude")
+//                val density = entry.getDouble("density")
+//
+//                if (density != 0.0) {
+//                    val weightedLatLng = WeightedLatLng(LatLng(lat, lon), density)
+//                    data.add(weightedLatLng)
+//                }
+//            }
+//        }
+
+
     }
 
     private fun getJsonDataFromAsset(fileName: String): JSONArray? {

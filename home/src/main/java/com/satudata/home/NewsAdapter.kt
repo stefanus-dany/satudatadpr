@@ -16,16 +16,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.satudata.home.HomeFragment.Companion.EXTRA_NEWS_BODY
+import com.satudata.home.HomeFragment.Companion.EXTRA_NEWS_CATEGORY
 import com.satudata.home.HomeFragment.Companion.EXTRA_NEWS_IMAGE
+import com.satudata.home.HomeFragment.Companion.EXTRA_NEWS_SOURCE
 import com.satudata.home.HomeFragment.Companion.EXTRA_NEWS_TITLE
 import com.satudata.home.databinding.ItemNewsBinding
+import com.satudata.services.model.BeritaModel
 import com.satudata.views.extensions.setSafeOnClickListener
 
 class NewsAdapter() :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
-    private var dataNews = ArrayList<NewsEntity>()
+    private var dataNews = ArrayList<BeritaModel>()
 
-    fun setdata(data: List<NewsEntity>?) {
+    fun setdata(data: List<BeritaModel>?) {
         if (data == null) return
         this.dataNews.clear()
         this.dataNews.addAll(data)
@@ -47,16 +50,18 @@ class NewsAdapter() :
     class NewsViewHolder(private val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: NewsEntity) {
+        fun bind(data: BeritaModel) {
             with(binding) {
-                ivNews.loadImage(data.newsImage)
-                tvTitleNews.text = data.newsTitle
+                ivNews.loadImage(data.gambar_berita)
+                tvTitleNews.text = data.judul_berita
             }
             itemView.setSafeOnClickListener {
                 val mBundle = Bundle()
-                mBundle.putString(EXTRA_NEWS_TITLE, data.newsTitle)
-                mBundle.putString(EXTRA_NEWS_IMAGE, data.newsImage)
-                mBundle.putString(EXTRA_NEWS_BODY, data.newsBody)
+                mBundle.putString(EXTRA_NEWS_TITLE, data.judul_berita)
+                mBundle.putString(EXTRA_NEWS_IMAGE, data.gambar_berita)
+                mBundle.putString(EXTRA_NEWS_BODY, data.isi_berita)
+                mBundle.putString(EXTRA_NEWS_CATEGORY, data.kategori_berita)
+                mBundle.putString(EXTRA_NEWS_SOURCE, data.source)
                 it.findNavController().navigate(R.id.action_homeFragment_to_newsDetailFragment, mBundle)
             }
         }

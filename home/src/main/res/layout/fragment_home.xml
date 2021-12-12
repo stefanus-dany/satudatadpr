@@ -133,7 +133,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_category_setjen_dprri"
+                android:id="@+id/cv_category_kpu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/layout_margin_end_medium_size"
@@ -141,12 +141,12 @@
                 app:cardCornerRadius="20dp">
 
                 <TextView
-                    android:id="@+id/tv_category_setjen_dprri"
+                    android:id="@+id/tv_category_kpu"
                     style="@style/formatFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/layout_margin_small_size"
-                    android:text="Setjen DPR RI"
+                    android:text="KPU"
                     android:textColor="@color/color_primary" />
 
             </androidx.cardview.widget.CardView>

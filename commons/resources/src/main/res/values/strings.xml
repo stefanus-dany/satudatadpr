@@ -24,6 +24,24 @@
     <!--Pop up Header-->
     <!--Pop up Message-->
 
+<!--    ArraySpinner-->
+    <string-array name="drop_down_data_list">
+        <item>Populasi Indonesia</item>
+        <item>Daftar Pemilih Tetap (DPT)</item>
+        <item>Rekapitulasi</item>
+        <item>Golongan Putih (Golput)</item>
+    </string-array>
+
+    <string-array name="drop_down_year_list">
+        <item>2014</item>
+        <item>2019</item>
+    </string-array>
+
+    <string-array name="drop_down_golput_category">
+        <item>Pemilihan Legislatif</item>
+        <item>Pemilihan Presiden</item>
+    </string-array>
+
 
 
 </resources>

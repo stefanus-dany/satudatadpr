@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navigation_profile -> {
-
+                    navController.setGraph(R.navigation.profile_navigation)
                 }
             }
             return@setOnItemSelectedListener true

@@ -10,13 +10,7 @@
         android:name="com.satudata.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment_to_heatmapFragment"
-            app:destination="@id/heatmapFragment"
-            app:enterAnim="@anim/fadein"
-            app:popEnterAnim="@anim/fadein"
-            app:exitAnim="@anim/fadeout"
-            app:popExitAnim="@anim/fadeout"/>
+
         <action
             android:id="@+id/action_homeFragment_to_newsDetailFragment"
             app:destination="@id/newsDetailFragment"
@@ -25,11 +19,7 @@
             app:exitAnim="@anim/fadeout"
             app:popExitAnim="@anim/fadeout"/>
     </fragment>
-    <fragment
-        android:id="@+id/heatmapFragment"
-        android:name="com.satudata.dashboard.heatmap.HeatmapFragment"
-        android:label="HeatmapFragment"
-        tools:layout="@layout/fragment_heatmap"/>
+
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.satudata.home.NewsDetailFragment"

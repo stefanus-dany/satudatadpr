@@ -41,7 +41,9 @@ android {
 dependencies {
 
     implementation project(':commons:resources')
+    implementation project(':services')
     implementation project(':commons:views')
+    implementation project(':data')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APPCOMPAT)
@@ -52,6 +54,8 @@ dependencies {
     implementation(Dependencies.FRAGMENT_KTX)
     implementation(Dependencies.NAVIGATION_FRAGMENT)
     implementation(Dependencies.NAVIGATION_UI)
+    implementation(Dependencies.RETROFIT_CONVERTER_GSON)
+    implementation(Dependencies.RETROFIT)
 
     //viewPager 2
     implementation(Dependencies.VIEW_PAGER2)

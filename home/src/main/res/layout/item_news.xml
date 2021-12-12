@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="270dp"
     android:layout_height="250dp"
+    android:id="@+id/cv_item_news"
     android:layout_marginStart="@dimen/layout_margin_start_large_size"
     app:cardCornerRadius="20dp"
     tools:ignore="MissingDefaultResource">

@@ -3,8 +3,8 @@
     "id": "11",
     "name": "Aceh",
     "alt_name": "ACEH",
-    "density":  200.0,
-    "total": 100,
+    "density":  3648,
+    "total": 3548,
     "latitude": 4.36855,
     "longitude": 97.0253
   },
@@ -12,8 +12,8 @@
     "id": "12",
     "name": "Sumatera Utara",
     "alt_name": "SUMATERA UTARA",
-    "density":  250.0,
-    "total": 200,
+    "density": 339,
+    "total": 339,
     "latitude": 2.19235,
     "longitude": 99.38122
   },
@@ -22,16 +22,16 @@
     "name": "Sumatera Barat",
     "alt_name": "SUMATERA BARAT",
     "latitude": -1.34225,
-    "density":  700.0,
-    "total": 300,
+    "density":  30000,
+    "total": 30000,
     "longitude": 100.0761
   },
   {
     "id": "14",
     "name": "Riau",
     "alt_name": "RIAU",
-    "density":  100.0,
-    "total": 400,
+    "density":  20000,
+    "total": 20000,
     "latitude": 0.50041,
     "longitude": 101.54758
   },
@@ -39,8 +39,8 @@
     "id": "31",
     "name": "DKI Jakarta",
     "alt_name": "DKI JAKARTA",
-    "density": 1000.0,
-    "total": 500,
+    "density": 1000,
+    "total": 1000,
     "latitude": -6.1745,
     "longitude": 106.8227
   }

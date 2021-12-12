@@ -1,16 +1,15 @@
 package com.satudata.data
 
-import android.content.Context
 import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.satudata.services.api.RetrofitServer
 import com.satudata.services.response.data.DPTResponse
+import com.satudata.services.response.data.GolputResponse
 import com.satudata.services.response.data.PopulationResponse
 import com.satudata.services.response.data.RekapitulasiResponse
-import de.codecrafters.tableview.TableView
-import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter
-import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Callback
@@ -24,7 +23,7 @@ class DataViewModel : ViewModel() {
 
 //    val text: LiveData<String> = _text
 
-    fun getPopulation(): LiveData<MutableList<Array<String>>> {
+    fun getPopulation(year: String): LiveData<MutableList<Array<String>>> {
 
         val mutableData = MutableLiveData<MutableList<Array<String>>>()
         val data: MutableList<Array<String>> = arrayListOf()
@@ -43,10 +42,12 @@ class DataViewModel : ViewModel() {
                                 val tahun = response.body()!!.data[i].tahun
                                 val total = response.body()!!.data[i].total.toString()
                                 val result: Array<String> = arrayOf(namaProvinsi, tahun, total)
-                                data.add(result)
+                                if (tahun == year) {
+                                    data.add(result)
+                                }
                             }
                             mutableData.value = data
-                        } else Log.e("DataViewModel", "onResponse: ${response.errorBody()}", )
+                        } else Log.e("DataViewModel", "onResponse: ${response.errorBody()}")
 
 
                     }
@@ -60,7 +61,7 @@ class DataViewModel : ViewModel() {
         return mutableData
     }
 
-    fun getRekapitulasi(): LiveData<MutableList<Array<String>>> {
+    fun getRekapitulasi(year: String, category: String): LiveData<MutableList<Array<String>>> {
 
         val mutableData = MutableLiveData<MutableList<Array<String>>>()
         val data: MutableList<Array<String>> = arrayListOf()
@@ -79,16 +80,22 @@ class DataViewModel : ViewModel() {
                                 val namaPemilu = response.body()!!.data[i].nama_pemilu
                                 val tahun = response.body()!!.data[i].tahun
                                 val total = response.body()!!.data[i].total.toString()
-                                val result: Array<String> = arrayOf(namaProvinsi, namaPemilu, tahun, total)
-                                data.add(result)
+                                val result: Array<String> =
+                                    arrayOf(namaProvinsi, namaPemilu, tahun, total)
+                                if (tahun == year && namaPemilu == category) {
+                                    data.add(result)
+                                }
                             }
                             mutableData.value = data
-                        } else Log.e("DataViewModel", "onResponse: ${response.errorBody()}", )
+                        } else Log.e("DataViewModel", "onResponse: ${response.errorBody()}")
 
 
                     }
 
-                    override fun onFailure(call: retrofit2.Call<RekapitulasiResponse>, t: Throwable) {
+                    override fun onFailure(
+                        call: retrofit2.Call<RekapitulasiResponse>,
+                        t: Throwable
+                    ) {
                         Log.e("tues", "onFailure: ${t.message}")
                     }
 
@@ -97,7 +104,47 @@ class DataViewModel : ViewModel() {
         return mutableData
     }
 
-    fun getDPT(): LiveData<MutableList<Array<String>>> {
+    fun getGolput(year: String, category: String): LiveData<MutableList<Array<String>>> {
+
+        val mutableData = MutableLiveData<MutableList<Array<String>>>()
+        val data: MutableList<Array<String>> = arrayListOf()
+
+        viewModelScope.launch(Dispatchers.Default) {
+            val api = RetrofitServer().getInstance()
+            api.getGolput()
+                .enqueue(object : Callback<GolputResponse> {
+                    override fun onResponse(
+                        call: retrofit2.Call<GolputResponse>,
+                        response: Response<GolputResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            for (i in response.body()?.data?.indices!!) {
+                                val namaProvinsi = response.body()!!.data[i].nama_provinsi
+                                val namaPemilu = response.body()!!.data[i].nama_pemilu
+                                val tahun = response.body()!!.data[i].tahun
+                                val total = response.body()!!.data[i].total_golput.toString()
+                                val result: Array<String> =
+                                    arrayOf(namaProvinsi, namaPemilu, tahun, total)
+                                if (tahun == year && namaPemilu == category) {
+                                    data.add(result)
+                                }
+                            }
+                            mutableData.value = data
+                        } else Log.e("DataViewModel", "onResponse: ${response.errorBody()}")
+
+
+                    }
+
+                    override fun onFailure(call: retrofit2.Call<GolputResponse>, t: Throwable) {
+                        Log.e("tues", "onFailure: ${t.message}")
+                    }
+
+                })
+        }
+        return mutableData
+    }
+
+    fun getDPT(year: String): LiveData<MutableList<Array<String>>> {
 
         val mutableData = MutableLiveData<MutableList<Array<String>>>()
         val data: MutableList<Array<String>> = arrayListOf()
@@ -116,10 +163,12 @@ class DataViewModel : ViewModel() {
                                 val tahun = response.body()!!.data[i].tahun
                                 val total = response.body()!!.data[i].total.toString()
                                 val result: Array<String> = arrayOf(namaProvinsi, tahun, total)
-                                data.add(result)
+                                if (tahun == year) {
+                                    data.add(result)
+                                }
                             }
                             mutableData.value = data
-                        } else Log.e("DataViewModel", "onResponse: ${response.errorBody()}", )
+                        } else Log.e("DataViewModel", "onResponse: ${response.errorBody()}")
 
 
                     }

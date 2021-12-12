@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.satudata.dashboard.databinding.ItemListProvinceBinding
+import com.satudata.services.model.HeatmapEntity
 import com.satudata.views.extensions.setSafeOnClickListener
 
 class HeatmapAdapter(private var mCallback: moveCamera) :
@@ -37,8 +38,11 @@ class HeatmapAdapter(private var mCallback: moveCamera) :
 
         fun bind(data: HeatmapEntity) {
             with(binding) {
-                tvProvince.text = data.provinceName
-                tvTotal.text = "Jumlah pemilih: ${data.provinceData}"
+                tvProvince.text = data.nama_provinsi
+                tvPopulasi.text = "Jumlah Populasi: ${data.populasi}"
+                tvDpt.text = "Jumlah Daftar Pemilih Tetap (DPT): ${data.dpt}"
+                tvRekap.text = "Jumlah Rekapitulasi: ${data.rekapitulasi}"
+                tvGolput.text = "Jumlah Golongan Putih (Golput): ${data.total_golput}"
             }
             itemView.setSafeOnClickListener {
                 mCallback.moveCameraWithAnimation(data.latitude, data.longitude)

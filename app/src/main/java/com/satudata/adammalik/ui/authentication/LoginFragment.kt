@@ -1,6 +1,9 @@
 package com.satudata.adammalik.ui.authentication
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.SyncStateContract
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +14,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.satudata.adammalik.R
 import com.satudata.adammalik.databinding.FragmentLoginBinding
+import com.satudata.profile.ProfileFragment.Companion.PROFIL_EMAIL
+import com.satudata.profile.ProfileFragment.Companion.PROFIL_NAME
+import com.satudata.profile.ProfileFragment.Companion.PROFIL_USERNAME
 import com.satudata.services.api.RetrofitServer
 import com.satudata.services.response.login.LoginResponse
 import com.satudata.views.extensions.setSafeOnClickListener
@@ -25,11 +31,35 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
+    private var profilName = ""
+    private var profilUsername = ""
+    private var profileEmail = ""
+
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferencesDetailUser: SharedPreferences
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        sharedPreferences = this.activity?.getSharedPreferences(
+            "sharedPrefs",
+            Context.MODE_PRIVATE
+        ) as SharedPreferences
+        val emailSaved = sharedPreferences.getString(CHECK_EMAIL, null)
+        val passSaved = sharedPreferences.getString(CHECK_PASSWORD, null)
+        val rememberMe = sharedPreferences.getBoolean(REMEMBER_ME, false)
+
+        binding.etEmail.setText(emailSaved)
+        binding.etPassword.setText(passSaved)
+        binding.rememberMe.isChecked = rememberMe
+
+        sharedPreferencesDetailUser = this.activity?.getSharedPreferences(
+            "sharedPrefsDetailUser",
+            Context.MODE_PRIVATE
+        ) as SharedPreferences
 
         binding.btnLogin.setSafeOnClickListener {
 
@@ -89,6 +119,9 @@ class LoginFragment : Fragment() {
                     ) {
                         if (response.isSuccessful) {
                             if (response.body()?.response == true) {
+                                profilName = response.body()!!.payload.nama
+                                profilUsername = response.body()!!.payload.username
+                                profileEmail = response.body()!!.payload.email
                                 findNavController().navigate(R.id.action_loginFragment_to_mainActivity)
                             } else {
                                 Toast.makeText(
@@ -118,6 +151,29 @@ class LoginFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val editor = sharedPreferences.edit()
+        if (binding.rememberMe.isChecked) {
+            editor.putString(CHECK_EMAIL, binding.etEmail.text.toString())
+            editor.putString(CHECK_PASSWORD, binding.etPassword.text.toString())
+            editor.putBoolean(REMEMBER_ME, true)
+            editor.apply()
+        } else editor.clear().apply()
+
+        val editorDetailUser = sharedPreferencesDetailUser.edit()
+        editorDetailUser.putString(PROFIL_NAME, profilName)
+        editorDetailUser.putString(PROFIL_USERNAME, profilUsername)
+        editorDetailUser.putString(PROFIL_EMAIL, profileEmail)
+        editorDetailUser.apply()
+    }
+
+    companion object {
+        const val CHECK_EMAIL = "check_email"
+        const val CHECK_PASSWORD = "check_password"
+        const val REMEMBER_ME = "remember_me"
     }
 
 }

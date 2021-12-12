@@ -43,6 +43,7 @@ dependencies {
     implementation project(':dashboard')
     implementation project(':data')
     implementation project(':services')
+    implementation project(':profile')
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
