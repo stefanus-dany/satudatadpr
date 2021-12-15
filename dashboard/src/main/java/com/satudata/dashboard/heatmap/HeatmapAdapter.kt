@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.satudata.dashboard.databinding.ItemListProvinceBinding
 import com.satudata.services.model.HeatmapEntity
 import com.satudata.views.extensions.setSafeOnClickListener
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class HeatmapAdapter(private var mCallback: moveCamera) :
     RecyclerView.Adapter<HeatmapAdapter.HeatmapViewHolder>() {
@@ -39,14 +41,19 @@ class HeatmapAdapter(private var mCallback: moveCamera) :
         fun bind(data: HeatmapEntity) {
             with(binding) {
                 tvProvince.text = data.nama_provinsi
-                tvPopulasi.text = "Jumlah Populasi: ${data.populasi}"
-                tvDpt.text = "Jumlah Daftar Pemilih Tetap (DPT): ${data.dpt}"
-                tvRekap.text = "Jumlah Rekapitulasi: ${data.rekapitulasi}"
-                tvGolput.text = "Jumlah Golongan Putih (Golput): ${data.total_golput}"
+                tvPopulasi.text = "Jumlah Populasi: ${formatterNumber(data.populasi)}"
+                tvDpt.text = "Jumlah Daftar Pemilih Tetap (DPT): ${formatterNumber(data.dpt)}"
+                tvRekap.text = "Jumlah Rekapitulasi: ${formatterNumber(data.rekapitulasi)}"
+                tvGolput.text = "Jumlah Golongan Putih (Golput): ${formatterNumber(data.total_golput)}"
             }
             itemView.setSafeOnClickListener {
                 mCallback.moveCameraWithAnimation(data.latitude, data.longitude)
             }
+        }
+
+        private fun formatterNumber (number: Int): String{
+            val formatter: NumberFormat = DecimalFormat("#,###")
+            return formatter.format(number)
         }
     }
 

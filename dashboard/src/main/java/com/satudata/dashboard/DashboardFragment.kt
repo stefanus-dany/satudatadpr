@@ -30,6 +30,8 @@ import com.satudata.views.extensions.setSafeOnClickListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class DashboardFragment : Fragment() {
 
@@ -252,7 +254,7 @@ class DashboardFragment : Fragment() {
         var text = "Jumlah Golput: "
         dashboardViewModel.getGolput(year, category).observe(viewLifecycleOwner){
             for (i in it.indices){
-                text += "${it[i].nama_provinsi} (${it[i].total_golput}), "
+                text += "${it[i].nama_provinsi} (${formatterNumber(it[i].total_golput)}), "
             }
             binding.runningTextHeatmap.ellipsize = TextUtils.TruncateAt.MARQUEE
             binding.runningTextHeatmap.isSelected = true
@@ -267,7 +269,8 @@ class DashboardFragment : Fragment() {
         animatorDash1.duration = 2500
         animatorDash1.addUpdateListener {
             try {
-                binding.tvBodyDash1.text = it.animatedValue.toString()
+//                binding.tvBodyDash1.text = it.animatedValue.toString()
+                binding.tvBodyDash1.text = formatterNumber(it.animatedValue as Int)
             } catch (e: NullPointerException) {
 
             }
@@ -278,7 +281,8 @@ class DashboardFragment : Fragment() {
         animatorDash2.duration = 2500
         animatorDash2.addUpdateListener {
             try {
-                binding.tvBodyDash2.text = it.animatedValue.toString()
+//                binding.tvBodyDash2.text = it.animatedValue.toString()
+                binding.tvBodyDash2.text = formatterNumber(it.animatedValue as Int)
             } catch (e: NullPointerException) {
 
             }
@@ -289,7 +293,8 @@ class DashboardFragment : Fragment() {
         animatorDash3.duration = 2500
         animatorDash3.addUpdateListener {
             try {
-                binding.tvBodyDash3.text = it.animatedValue.toString()
+//                binding.tvBodyDash3.text = it.animatedValue.toString()
+                binding.tvBodyDash3.text = formatterNumber(it.animatedValue as Int)
             } catch (e: NullPointerException) {
 
             }
@@ -300,7 +305,8 @@ class DashboardFragment : Fragment() {
         animatorDash4.duration = 2500
         animatorDash4.addUpdateListener {
             try {
-                binding.tvBodyDash4.text = it.animatedValue.toString()
+//                binding.tvBodyDash4.text = it.animatedValue.toString()
+                binding.tvBodyDash4.text = formatterNumber(it.animatedValue as Int)
             } catch (e: NullPointerException) {
 
             }
@@ -488,6 +494,10 @@ class DashboardFragment : Fragment() {
         const val EXTRA_CATEGORY = "extra_category"
     }
 
+    private fun formatterNumber (number: Int): String{
+        val formatter: NumberFormat = DecimalFormat("#,###")
+        return formatter.format(number)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

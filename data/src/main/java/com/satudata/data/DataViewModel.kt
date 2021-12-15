@@ -14,6 +14,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class DataViewModel : ViewModel() {
 
@@ -40,9 +42,10 @@ class DataViewModel : ViewModel() {
                             for (i in response.body()?.data?.indices!!) {
                                 val namaProvinsi = response.body()!!.data[i].nama_provinsi
                                 val tahun = response.body()!!.data[i].tahun
-                                val total = response.body()!!.data[i].total.toString()
-                                val result: Array<String> = arrayOf(namaProvinsi, tahun, total)
+                                val total = formatterNumber(response.body()!!.data[i].total)
+//                                val result: Array<String> = arrayOf(namaProvinsi, tahun, total)
                                 if (tahun == year) {
+                                    val result: Array<String> = arrayOf(namaProvinsi, total)
                                     data.add(result)
                                 }
                             }
@@ -79,10 +82,12 @@ class DataViewModel : ViewModel() {
                                 val namaProvinsi = response.body()!!.data[i].nama_provinsi
                                 val namaPemilu = response.body()!!.data[i].nama_pemilu
                                 val tahun = response.body()!!.data[i].tahun
-                                val total = response.body()!!.data[i].total.toString()
-                                val result: Array<String> =
-                                    arrayOf(namaProvinsi, namaPemilu, tahun, total)
+                                val total = formatterNumber(response.body()!!.data[i].total)
+//                                val result: Array<String> =
+//                                    arrayOf(namaProvinsi, namaPemilu, tahun, total)
                                 if (tahun == year && namaPemilu == category) {
+                                    val result: Array<String> =
+                                        arrayOf(namaProvinsi, total)
                                     data.add(result)
                                 }
                             }
@@ -122,10 +127,12 @@ class DataViewModel : ViewModel() {
                                 val namaProvinsi = response.body()!!.data[i].nama_provinsi
                                 val namaPemilu = response.body()!!.data[i].nama_pemilu
                                 val tahun = response.body()!!.data[i].tahun
-                                val total = response.body()!!.data[i].total_golput.toString()
-                                val result: Array<String> =
-                                    arrayOf(namaProvinsi, namaPemilu, tahun, total)
+                                val total = formatterNumber(response.body()!!.data[i].total_golput)
+//                                val result: Array<String> =
+//                                    arrayOf(namaProvinsi, namaPemilu, tahun, total)
                                 if (tahun == year && namaPemilu == category) {
+                                    val result: Array<String> =
+                                        arrayOf(namaProvinsi, total)
                                     data.add(result)
                                 }
                             }
@@ -161,9 +168,10 @@ class DataViewModel : ViewModel() {
                             for (i in response.body()?.data?.indices!!) {
                                 val namaProvinsi = response.body()!!.data[i].nama_provinsi
                                 val tahun = response.body()!!.data[i].tahun
-                                val total = response.body()!!.data[i].total.toString()
-                                val result: Array<String> = arrayOf(namaProvinsi, tahun, total)
+                                val total = formatterNumber(response.body()!!.data[i].total)
+//                                val result: Array<String> = arrayOf(namaProvinsi, tahun, total)
                                 if (tahun == year) {
+                                    val result: Array<String> = arrayOf(namaProvinsi, total)
                                     data.add(result)
                                 }
                             }
@@ -181,5 +189,11 @@ class DataViewModel : ViewModel() {
         }
         return mutableData
     }
+
+    private fun formatterNumber (number: Int): String{
+        val formatter: NumberFormat = DecimalFormat("#,###")
+        return formatter.format(number)
+    }
+
 
 }

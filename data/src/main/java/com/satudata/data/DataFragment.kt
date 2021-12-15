@@ -231,10 +231,10 @@ class DataFragment : Fragment() {
 
     private fun observeDataPopulation(year: String) {
         viewModel.getPopulation(year).observe(viewLifecycleOwner) {
-            val columnModel = TableColumnDpWidthModel(context, 3, 200)
+            val columnModel = TableColumnDpWidthModel(context, 2, 200)
             columnModel.setColumnWidth(0, 300)
-            columnModel.setColumnWidth(1, 100)
-            columnModel.setColumnWidth(2, 100)
+//            columnModel.setColumnWidth(1, 100)
+            columnModel.setColumnWidth(1, 200)
             binding.tableView.columnModel = columnModel
 
             val tableView: TableView<Array<String>> =
@@ -245,7 +245,7 @@ class DataFragment : Fragment() {
                 SimpleTableHeaderAdapter(
                     context,
                     "Provinsi",
-                    "Tahun",
+//                    "Tahun",
                     "Total"
                 )
 
@@ -254,11 +254,11 @@ class DataFragment : Fragment() {
 
     private fun observeDataRekapitulasi(year: String, category: String) {
         viewModel.getRekapitulasi(year, category).observe(viewLifecycleOwner) {
-            val columnModel = TableColumnDpWidthModel(context, 4, 200)
+            val columnModel = TableColumnDpWidthModel(context, 2, 200)
             columnModel.setColumnWidth(0, 250)
+//            columnModel.setColumnWidth(1, 200)
+//            columnModel.setColumnWidth(2, 100)
             columnModel.setColumnWidth(1, 200)
-            columnModel.setColumnWidth(2, 100)
-            columnModel.setColumnWidth(3, 100)
             binding.tableView.columnModel = columnModel
 
             val tableView: TableView<Array<String>> =
@@ -269,8 +269,8 @@ class DataFragment : Fragment() {
                 SimpleTableHeaderAdapter(
                     context,
                     "Provinsi",
-                    "Nama Pemilu",
-                    "Tahun",
+//                    "Nama Pemilu",
+//                    "Tahun",
                     "Total"
                 )
 
@@ -279,11 +279,11 @@ class DataFragment : Fragment() {
 
     private fun observeDataGolput(year: String, category: String) {
         viewModel.getGolput(year, category).observe(viewLifecycleOwner) {
-            val columnModel = TableColumnDpWidthModel(context, 4, 200)
+            val columnModel = TableColumnDpWidthModel(context, 2, 200)
             columnModel.setColumnWidth(0, 250)
+//            columnModel.setColumnWidth(1, 200)
+//            columnModel.setColumnWidth(2, 100)
             columnModel.setColumnWidth(1, 200)
-            columnModel.setColumnWidth(2, 100)
-            columnModel.setColumnWidth(3, 200)
             binding.tableView.columnModel = columnModel
 
             val tableView: TableView<Array<String>> =
@@ -294,8 +294,8 @@ class DataFragment : Fragment() {
                 SimpleTableHeaderAdapter(
                     context,
                     "Provinsi",
-                    "Nama Pemilu",
-                    "Tahun",
+//                    "Nama Pemilu",
+//                    "Tahun",
                     "Total Golput"
                 )
 
@@ -304,10 +304,10 @@ class DataFragment : Fragment() {
 
     private fun observeDataDPT(year: String) {
         viewModel.getDPT(year).observe(viewLifecycleOwner) {
-            val columnModel = TableColumnDpWidthModel(context, 3, 200)
+            val columnModel = TableColumnDpWidthModel(context, 2, 200)
             columnModel.setColumnWidth(0, 300)
-            columnModel.setColumnWidth(1, 100)
-            columnModel.setColumnWidth(2, 100)
+//            columnModel.setColumnWidth(1, 100)
+            columnModel.setColumnWidth(1, 200)
             binding.tableView.columnModel = columnModel
 
             val tableView: TableView<Array<String>> =
@@ -318,10 +318,9 @@ class DataFragment : Fragment() {
                 SimpleTableHeaderAdapter(
                     context,
                     "Provinsi",
-                    "Tahun",
+//                    "Tahun",
                     "Total"
                 )
-
         }
     }
 
