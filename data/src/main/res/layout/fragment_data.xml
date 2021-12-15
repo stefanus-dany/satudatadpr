@@ -83,6 +83,15 @@
         tools:text="Table Name"
         android:textSize="@dimen/large_text" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerData"/>
 
     <HorizontalScrollView
         android:layout_width="match_parent"

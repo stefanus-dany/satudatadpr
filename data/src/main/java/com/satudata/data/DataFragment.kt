@@ -248,7 +248,7 @@ class DataFragment : Fragment() {
 //                    "Tahun",
                     "Total"
                 )
-
+            binding.progressBar.visibility = View.GONE
         }
     }
 
@@ -273,7 +273,7 @@ class DataFragment : Fragment() {
 //                    "Tahun",
                     "Total"
                 )
-
+            binding.progressBar.visibility = View.GONE
         }
     }
 
@@ -298,7 +298,7 @@ class DataFragment : Fragment() {
 //                    "Tahun",
                     "Total Golput"
                 )
-
+            binding.progressBar.visibility = View.GONE
         }
     }
 
@@ -321,6 +321,7 @@ class DataFragment : Fragment() {
 //                    "Tahun",
                     "Total"
                 )
+            binding.progressBar.visibility = View.GONE
         }
     }
 

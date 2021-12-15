@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitServer {
 
     companion object {
-        const val baseURL = "http://10.13.9.167/"
+        const val baseURL = "http://sipilu.neomdesk.id/sipilu_mobile/"
     }
 
     private fun getRetrofitClient(): Retrofit {

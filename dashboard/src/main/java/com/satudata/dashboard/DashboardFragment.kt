@@ -99,6 +99,7 @@ class DashboardFragment : Fragment() {
                 ) {
                     when (position) {
                         0 -> {
+                            binding.progressBar.visibility = View.VISIBLE
                             year = "2014"
                             mBundle.putString(EXTRA_YEAR, year)
                             getCountTotalData(init = false)
@@ -106,6 +107,7 @@ class DashboardFragment : Fragment() {
                         }
 
                         1 -> {
+                            binding.progressBar.visibility = View.VISIBLE
                             year = "2019"
                             mBundle.putString(EXTRA_YEAR, year)
                             getCountTotalData(init = false)
@@ -135,6 +137,7 @@ class DashboardFragment : Fragment() {
                 ) {
                     when (position) {
                         0 -> {
+                            binding.progressBar.visibility = View.VISIBLE
                             category = "Pemilihan Legislatif"
                             mBundle.putString(EXTRA_CATEGORY, category)
                             getCountTotalData(init = false)
@@ -143,6 +146,7 @@ class DashboardFragment : Fragment() {
                         }
 
                         1 -> {
+                            binding.progressBar.visibility = View.VISIBLE
                             category = "Pemilihan Presiden"
                             mBundle.putString(EXTRA_CATEGORY, category)
                             getCountTotalData(init = false)
@@ -230,6 +234,7 @@ class DashboardFragment : Fragment() {
 
                 withContext(Dispatchers.Main) {
                     binding.scrollView.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
                     //animation for each dash1, dash2, dash3, and dash4
 
                     if (init) {

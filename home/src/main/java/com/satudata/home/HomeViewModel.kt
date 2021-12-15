@@ -48,7 +48,7 @@ class HomeViewModel : ViewModel() {
                             data = result
 //                            }
                             mutableData.value = data
-                        } else Log.e("DataViewModel", "onResponse: ${response.errorBody()}")
+                        } else Log.e("DataViewModel", "onResponse getBerita: ${response.errorBody()}")
 
 
                     }

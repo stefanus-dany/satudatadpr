@@ -156,6 +156,8 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback, HeatmapAdapter.moveCamer
                 adapter = this@HeatmapFragment.heatmapAdapter
             }
             heatmapAdapter.setdata(it)
+            binding.rvProvince.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.GONE
             Log.i("generateHeatMapData", "data aja: $it")
         }
     }
