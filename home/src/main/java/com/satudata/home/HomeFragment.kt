@@ -54,6 +54,8 @@ class HomeFragment : Fragment() {
         observeDataBerita()
 
         binding.cvCategoryPemilu2024.setSafeOnClickListener {
+            binding.rvNews.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
             setColorCategories(it)
             homeViewModel._newsCategory.value = 0
             category = 0
@@ -68,6 +70,8 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvCategoryDprri.setSafeOnClickListener {
+            binding.rvNews.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
             setColorCategories(it)
             homeViewModel._newsCategory.value = 1
             category = 1
@@ -82,6 +86,8 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvCategoryKpu.setSafeOnClickListener {
+            binding.rvNews.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
             setColorCategories(it)
             homeViewModel._newsCategory.value = 2
             category = 2
@@ -96,6 +102,8 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvCategorySatudataDprri.setSafeOnClickListener {
+            binding.rvNews.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
             setColorCategories(it)
             homeViewModel._newsCategory.value = 3
             category = 3
@@ -232,6 +240,7 @@ class HomeFragment : Fragment() {
                     }
                 }
             }
+            binding.rvNews.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
         }
 

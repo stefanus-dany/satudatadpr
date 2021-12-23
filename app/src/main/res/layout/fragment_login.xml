@@ -84,6 +84,7 @@
             android:id="@+id/materialCardView"
             style="@style/BottomSheetCardViewLeftTop"
             android:layout_width="match_parent"
+            android:backgroundTint="@color/white"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,6 +93,7 @@
 
             <LinearLayout
                 android:id="@+id/ll_login"
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -167,36 +169,36 @@
                     android:textSize="@dimen/large_text"
                     android:textStyle="bold" />
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="@dimen/layout_margin_top_small_size"-->
-<!--                    android:gravity="center"-->
-<!--                    android:orientation="horizontal">-->
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/layout_margin_top_small_size"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:orientation="horizontal">-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_label_register"-->
-<!--                        style="@style/formatFont"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center_horizontal"-->
-<!--                        android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"-->
-<!--                        android:text="@string/label_dont_have_account"-->
-<!--                        android:textColor="@color/grey_font"-->
-<!--                        android:textSize="@dimen/medium_text" />-->
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tv_label_register"-->
+                <!--                        style="@style/formatFont"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_gravity="center_horizontal"-->
+                <!--                        android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"-->
+                <!--                        android:text="@string/label_dont_have_account"-->
+                <!--                        android:textColor="@color/grey_font"-->
+                <!--                        android:textSize="@dimen/medium_text" />-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_register"-->
-<!--                        style="@style/formatFont"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center_horizontal"-->
-<!--                        android:layout_marginStart="@dimen/layout_margin_start_xxxsmall_size"-->
-<!--                        android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"-->
-<!--                        android:text="@string/label_register_here"-->
-<!--                        android:textSize="@dimen/medium_text" />-->
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tv_register"-->
+                <!--                        style="@style/formatFont"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_gravity="center_horizontal"-->
+                <!--                        android:layout_marginStart="@dimen/layout_margin_start_xxxsmall_size"-->
+                <!--                        android:layout_marginTop="@dimen/layout_margin_top_xxxlarge_size"-->
+                <!--                        android:text="@string/label_register_here"-->
+                <!--                        android:textSize="@dimen/medium_text" />-->
 
-<!--                </LinearLayout>-->
+                <!--                </LinearLayout>-->
 
             </LinearLayout>
 
@@ -206,7 +208,7 @@
             android:id="@+id/materialCardView_background"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:backgroundTint="@android:color/transparent"
+            android:backgroundTint="@color/white"
             android:src="@color/color_primary"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"

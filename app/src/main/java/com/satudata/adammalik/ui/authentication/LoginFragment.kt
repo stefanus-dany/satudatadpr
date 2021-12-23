@@ -98,7 +98,6 @@ class LoginFragment : Fragment() {
 //                ).show()
 //            }
             getLoginData()
-            binding.progressBar.visibility = View.GONE
 
         }
 
@@ -123,6 +122,7 @@ class LoginFragment : Fragment() {
                                 profilUsername = response.body()!!.payload.username
                                 profileEmail = response.body()!!.payload.email
                                 findNavController().navigate(R.id.action_loginFragment_to_mainActivity)
+                                binding.progressBar.visibility = View.GONE
                             } else {
                                 Toast.makeText(
                                     requireContext(),

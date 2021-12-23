@@ -232,7 +232,7 @@ class DataFragment : Fragment() {
     private fun observeDataPopulation(year: String) {
         viewModel.getPopulation(year).observe(viewLifecycleOwner) {
             val columnModel = TableColumnDpWidthModel(context, 2, 200)
-            columnModel.setColumnWidth(0, 300)
+            columnModel.setColumnWidth(0, 250)
 //            columnModel.setColumnWidth(1, 100)
             columnModel.setColumnWidth(1, 200)
             binding.tableView.columnModel = columnModel
@@ -305,7 +305,7 @@ class DataFragment : Fragment() {
     private fun observeDataDPT(year: String) {
         viewModel.getDPT(year).observe(viewLifecycleOwner) {
             val columnModel = TableColumnDpWidthModel(context, 2, 200)
-            columnModel.setColumnWidth(0, 300)
+            columnModel.setColumnWidth(0, 250)
 //            columnModel.setColumnWidth(1, 100)
             columnModel.setColumnWidth(1, 200)
             binding.tableView.columnModel = columnModel
